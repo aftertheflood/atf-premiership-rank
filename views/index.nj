@@ -1,0 +1,8 @@
+{% extends "page.nj" %}
+
+{% block content %}
+  --- Hello world ---
+  <hr>
+  {{ data }}
+  {{ date }}
+{% endblock %}

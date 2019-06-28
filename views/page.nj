@@ -1,0 +1,8 @@
+<html>
+<head></head>
+<body>
+{% block content %}
+This is the default content
+{% endblock %}
+</body>
+</html>
