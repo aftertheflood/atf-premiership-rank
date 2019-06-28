@@ -1,7 +1,7 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
-const app = express()
-const port = 3000
+const app = express();
+const port = process.env.PORT || 3000;
 
 nunjucks.configure('views', {
   autoescape: true,
@@ -15,4 +15,7 @@ function getData(req, res, next){
 
 app.get('/', getData, (req, res) => res.render('index.nj', {data:req.data, date:new Date()}))
 
-app.listen(port, () => console.log(`http://localhost:${port}!`))
+
+app.listen(port, function(){
+  console.log(`ATF Premiership Rank is running on ${port}`);
+});
