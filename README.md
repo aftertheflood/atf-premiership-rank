@@ -1,0 +1,1 @@
+This app takes data about the premiership and outputs tables and graphics of alternative ranking schemes
