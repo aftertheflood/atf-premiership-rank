@@ -2,19 +2,11 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const app = express();
 const port = process.env.PORT || 3000;
+const addRoutes = require('./routes');
 
-nunjucks.configure('views', {
-  autoescape: true,
-  express: app
-});
+nunjucks.configure('views', { autoescape: true, express: app });
 
-function getData(req, res, next){
-  req.data = [1,2,3,4,5,6,7,8,9];
-  next();
-}
-
-app.get('/', getData, (req, res) => res.render('index.nj', {data:req.data, date:new Date()}))
-
+addRoutes(app);
 
 app.listen(port, function(){
   console.log(`ATF Premiership Rank is running on ${port}`);
