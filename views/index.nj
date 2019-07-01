@@ -4,7 +4,9 @@
   Premiership table
   <hr>
   {{ data.results | table({
-    columns: ['club','points','position','wagebill'],
+    columns: ['club','points','position','wagebill','_rank','_rankDistance'],
+    headings: ['','Points','Position','Wages','ATF Rank',''],
+    columnClasses: ['','number','number','currency','',''],
     sort: 'points',
     rowClass: 'code'
   }) | safe }}
