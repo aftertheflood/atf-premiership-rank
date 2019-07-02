@@ -10,6 +10,13 @@ function addRoutes(app){
     getSheetData, 
     (req, res) => res.json(req.data.results));
 
+  app.get('/club/:clubid.json',
+    getSheetData,
+    (req, res) => {
+      console.log(Object.keys(req.data))
+      res.json(req.data.teams[req.params.clubid])
+    });
+
   return app;
 }
 
