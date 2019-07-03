@@ -6,7 +6,14 @@ const helmet = require('helmet')
 const addRoutes = require('./routes');
 const addFilters = require('./filters');
 
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy:{
+    directives:{
+      defaultSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com'],
+      styleSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com']
+    }
+  }
+}));
 
 const env = nunjucks.configure('views', { autoescape: true, express: app });
 
