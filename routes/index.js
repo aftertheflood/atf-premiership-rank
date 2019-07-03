@@ -4,7 +4,7 @@ function addRoutes(app){
   app.get('/', 
     getSheetData,
     rankTeams,
-    (req, res) => res.render('index.nj', {data:req.data, date:new Date()}));
+    (req, res) => res.render('index.html.nj', {data:req.data, date:new Date()}));
 
   app.get('/table.json', 
     getSheetData,
@@ -15,9 +15,15 @@ function addRoutes(app){
     getSheetData,
     rankTeams,
     decorateClubData,
+    (req, res) => res.json(req.data.selectedClub));
+
+  app.get('/club/:clubid.svg',
+    getSheetData,
+    rankTeams,
+    decorateClubData,
     (req, res) => {
-      console.log(Object.keys(req.data.selectedClub))
-      res.json(req.data.selectedClub)
+      res.setHeader('Content-Type','image/svg+xml');
+      res.render('club.svg.nj', { club:req.data.selectedClub, imageWidth:500, imageHeight:200 })
     });
 
   return app;

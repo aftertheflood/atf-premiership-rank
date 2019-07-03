@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{{imageWidth}}" height="{{imageHeight}}">
+  <image width="50" height="50" xlink:href="{{ club.code | logo}}" />
+  <g transform="translate(55, 0)" font-family="sans-serif">
+    <text dy="15" font-weight="bold">{{ club.name }}</text>
+    <text dy="33">ATF rank {{ club.data._rank }} <tspan font-size="12px">({{ (club.data.position - club.data._rank) | signed }})</tspan></text>
+    <text dy="50" font-size="12px" fill="rgb(128, 128, 128)">(Premier league rank {{ club.data.position }}. Wages £{{ club.data.wagebill | localeString }})</text>
+  </g>
+</svg>
