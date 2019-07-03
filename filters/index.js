@@ -1,4 +1,5 @@
 require('../text/md-require');
+const imageURL = (clubid)=>`https://aftertheflood.com/wp-content/uploads/2019/07/${clubid}.png`;
 const markDownText = require('../text/index')
 
 const abbreviateNumber = (n)=>{
@@ -32,12 +33,14 @@ function formatter(classList, s){
 }
 
 function addFilters(env){
-  env.addFilter('md', function(key){
-    return markDownText[key].html
-  });
+  env.addFilter('logo', imageURL);
+  env.addFilter('signed', s=>String(`${s >= 0 ? '+' : ''}${s}`));
+  env.addFilter('md', (key) => markDownText[key].html);
+  env.addFilter('localeString', s=>Number(s).toLocaleString());
 
   env.addFilter('table', function(data, config) {
-    /* config looks like this...  {
+    /* quite a complicated filter:
+    config looks like this...  {
       columns: ['club','points','position','wage bill'],
       columnClasses: [...],
       headings: [...]

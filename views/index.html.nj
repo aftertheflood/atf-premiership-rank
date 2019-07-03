@@ -1,4 +1,4 @@
-{% extends "page.nj" %}
+{% extends "page.html.nj" %}
 
 {% block content %}
   Premiership table
