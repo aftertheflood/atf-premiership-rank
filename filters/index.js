@@ -1,5 +1,4 @@
 require('../text/md-require');
-
 const imageURL = (clubid)=>`https://aftertheflood.com/wp-content/uploads/2019/07/${clubid}.png`;
 const markDownText = require('../text/index')
 
