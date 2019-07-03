@@ -9,8 +9,8 @@ const addFilters = require('./filters');
 app.use(helmet({
   contentSecurityPolicy:{
     directives:{
-      defaultSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com'],
-      styleSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com']
+      defaultSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com'],
+      styleSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com']
     }
   }
 }));
