@@ -1,8 +1,8 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="http://tools.aftertheflood.com/assets/css/fonts.css">
-  <link rel="stylesheet" type="text/css" href="http://tools.aftertheflood.com/assets/css/type.css">
-  <link rel="stylesheet" type="text/css" href="http://tools.aftertheflood.com/assets/css/layout.css">
+  <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/fonts.css">
+  <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css">
+  <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css">
   <style>
   td.number{
     text-align:right;
