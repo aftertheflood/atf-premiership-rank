@@ -2,11 +2,12 @@
 
 {% block content %}
   Premiership table
+  {{ 'intro' | md | safe}}
   <hr>
   {{ data.results | table({
     columns: ['club','points','position','wagebill','_rank','_rankDistance'],
     headings: ['','Points','Position','Wages','ATF Rank',''],
-    columnClasses: ['','number','number','currency','',''],
+    columnClasses: ['','number','number','currency','number','number round3'],
     sort: 'points',
     rowClass: 'code'
   }) | safe }}

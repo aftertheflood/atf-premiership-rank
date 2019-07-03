@@ -1,8 +1,24 @@
 <html>
-<head></head>
+<head>
+  <link rel="stylesheet" type="text/css" href="http://tools.aftertheflood.com/assets/css/fonts.css">
+  <link rel="stylesheet" type="text/css" href="http://tools.aftertheflood.com/assets/css/type.css">
+  <link rel="stylesheet" type="text/css" href="http://tools.aftertheflood.com/assets/css/layout.css">
+  <style>
+  td.number{
+    text-align:right;
+    font-variant-numeric: tabular-nums;
+  }
+  td.currency{
+    text-align:right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  </style>
+</head>
+
 <body>
 {% block content %}
-This is the default content
+DEFAULT!
 {% endblock %}
 </body>
 </html>
