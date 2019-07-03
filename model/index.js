@@ -18,6 +18,17 @@ function magnitude([x, y]){
   return Math.sqrt(x*x + y*y)
 }
 
+function decorateClubData(req, res, next){
+  if(req.params.clubid != undefined){
+    const clubRow = req.data.results.filter(d=>(d.code.toLowerCase() == req.params.clubid.toLowerCase()));
+    req.data.selectedClub = req.data.teams[req.params.clubid][0];
+    console.log('cr', clubRow[0])
+    req.data.selectedClub.data = clubRow[0];
+    next();
+  }
+  next();
+}
+
 function getSheetData(req, res, next){
   const dataGet = fetch(dataURL);
   const teamsGet = fetch(teamDataURL);
@@ -89,4 +100,4 @@ function rankTeams(req, res, next){
   next();
 }
 
-module.exports = { getSheetData, rankTeams };
+module.exports = { getSheetData, rankTeams, decorateClubData };
