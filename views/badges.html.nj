@@ -1,0 +1,5 @@
+{% for row in data.results %}
+<object type="image/svg+xml" data="/club/{{row.code}}.svg" class="logo">
+  Man United
+</object>
+{% endfor %}

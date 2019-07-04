@@ -1,4 +1,4 @@
-const { getSheetData, rankTeams, decorateClubData } = require('../model');
+const { getSheetData, rankTeams, decorateClubData, calculateRegression } = require('../model');
 
 function addRoutes(app){
   app.get('/', 
@@ -23,7 +23,16 @@ function addRoutes(app){
     decorateClubData,
     (req, res) => {
       res.setHeader('Content-Type','image/svg+xml');
-      res.render('club.svg.nj', { club:req.data.selectedClub, imageWidth:500, imageHeight:200 })
+      res.render('club.svg.nj', { club: req.data.selectedClub, imageWidth: 300, imageHeight: 80 })
+    });
+
+  app.get('/scatter-plot.svg',
+    getSheetData,
+    rankTeams,
+    calculateRegression,
+    (req, res) => {
+      res.setHeader('Content-Type','image/svg+xml');
+      res.render('scatter.svg.nj', { imageWidth: 500, imageHeight: 500 })
     });
 
   return app;

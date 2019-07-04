@@ -4,6 +4,11 @@
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css">
   <style>
+  .intro h1{
+    line-height:70px;
+    padding-left:0px
+  }
+
   td.number{
     text-align:right;
     font-variant-numeric: tabular-nums;
@@ -12,8 +17,28 @@
     text-align:right;
     font-variant-numeric: tabular-nums;
   }
+  td{
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  th{
+    padding:15px;
+  }
 
+  th{
+    border-bottom: 1px solid #888;
+  }
+  table, th, td{
+    border-collapse: collapse;
+  }
+  margin{
+    padding: 50px;
+  }
+  .content-block{
+    padding: 30px;
+  }
   </style>
+  <script>console.log('inline-script')</script>
 </head>
 
 <body>

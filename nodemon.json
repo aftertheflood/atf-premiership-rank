@@ -1,5 +1,5 @@
 {
   "verbose": true,
   "ignore": ["node_modules"],
-  "ext": "js,json,nj"
+  "ext": "js,json,nj,md"
 }

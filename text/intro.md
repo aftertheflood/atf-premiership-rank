@@ -1,4 +1,3 @@
 # Alternative Premier League Ranking
 
-Below we see a table of the British Premier League
-
+Below is a table of the British Premier League as it stood at the end of the 2018 season. Those teams with the most points are at the top those with the least at the bottom. There are a couple of other columns after the teams position first the clubs wage bill and the _ATF Rank_, the wages follow the table position fairly closely, the higher wage bills at the top, the lower bills at the bottom. But the relationship is not perfect some teams through a mix of canny buying decisions, player development and luck get better results from less money.  The _ATF rank_ is an attempt to quantify the degree to which a club over or under performs.

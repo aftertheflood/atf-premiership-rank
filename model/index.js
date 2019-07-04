@@ -99,4 +99,8 @@ function rankTeams(req, res, next){
   next();
 }
 
-module.exports = { getSheetData, rankTeams, decorateClubData };
+function calculateRegression(req, res, next){
+  next();
+}
+
+module.exports = { calculateRegression, decorateClubData, getSheetData, rankTeams };

@@ -10,7 +10,8 @@ app.use(helmet({
   contentSecurityPolicy:{
     directives:{
       defaultSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com'],
-      styleSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com']
+      styleSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com', "'unsafe-inline'"],
+      scriptSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com', "'unsafe-inline'"],
     }
   }
 }));
