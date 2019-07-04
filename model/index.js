@@ -22,7 +22,6 @@ function decorateClubData(req, res, next){
   if(req.params.clubid != undefined){
     const clubRow = req.data.results.filter(d=>(d.code.toLowerCase() == req.params.clubid.toLowerCase()));
     req.data.selectedClub = req.data.teams[req.params.clubid][0];
-    console.log('cr', clubRow[0])
     req.data.selectedClub.data = clubRow[0];
     next();
   }

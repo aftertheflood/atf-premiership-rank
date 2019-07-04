@@ -17,8 +17,7 @@ const abbreviateNumber = (n)=>{
   return num;
 }
 
-function formatter(classList, s){
-  console.log('formatter', classList, s);
+function formatter(classList, s) {
   let formatted = s;
   if(classList.indexOf('currency') > -1){
     const numParts = abbreviateNumber(Number(formatted));
