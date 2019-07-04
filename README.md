@@ -1,6 +1,6 @@
-Staging: [![Heroku](https://heroku-badge.herokuapp.com/?app=atf-premrank-staging)]
+Staging: [!Heroku](https://heroku-badge.herokuapp.com/?app=atf-premrank-staging)
 
-Production: [![Heroku](https://heroku-badge.herokuapp.com/?app=atf-premrank-production)]
+Production: [!Heroku](https://heroku-badge.herokuapp.com/?app=atf-premrank-production)
 
 ---
 
