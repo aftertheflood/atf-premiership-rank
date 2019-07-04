@@ -16,9 +16,11 @@ app.use(helmet({
   }
 }));
 
+
 const env = nunjucks.configure('views', { autoescape: true, express: app });
 
 addFilters(env);
+
 addRoutes(app);
 
 const port = process.env.PORT || 3000;

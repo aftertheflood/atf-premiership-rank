@@ -17,22 +17,23 @@ function addRoutes(app){
     decorateClubData,
     (req, res) => res.json(req.data.selectedClub));
 
-  app.get('/club/:clubid.svg',
-    getSheetData,
-    rankTeams,
-    decorateClubData,
-    (req, res) => {
-      res.setHeader('Content-Type','image/svg+xml');
-      res.render('club.svg.nj', { club: req.data.selectedClub, imageWidth: 300, imageHeight: 80 })
-    });
-
   app.get('/scatter-plot.svg',
     getSheetData,
     rankTeams,
     calculateRegression,
     (req, res) => {
-      res.setHeader('Content-Type','image/svg+xml');
+      console.dir('scatter', res.headersSent)
+      res.set('Content-Type','image/svg+xml');
       res.render('scatter.svg.nj', { imageWidth: 500, imageHeight: 500 })
+    });
+
+  app.get('/club/:clubid.svg',
+    getSheetData,
+    rankTeams,
+    decorateClubData,
+    (req, res) => {
+      res.set('Content-Type','image/svg+xml');
+      res.render('club.svg.nj', { club: req.data.selectedClub, imageWidth: 300, imageHeight: 80 });
     });
 
   return app;
