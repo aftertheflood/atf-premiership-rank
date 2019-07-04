@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const { extent, scaleLinear} = require('d3');
+const { regressionLinear } = require('d3-regression');
 const { vector2coords, coords2vector } = require('./vector-line');
 const lineIntersection = require('./line-intersection');
 
@@ -50,8 +51,6 @@ function getSheetData(req, res, next){
 function rankTeams(req, res, next){
   // Wage Weighting 0-1
   // 0 is 100% property x 1 is 100% property y
-  const weighting = 0.5;
-
   const propX = d=> Number(d['points']); // high points total is good
   const propY = d=> Number(d['wagebill']); // low wage bill is good 
 
@@ -61,18 +60,37 @@ function rankTeams(req, res, next){
 
   const xScale = scaleLinear().range([0, 1])
     .domain(xDomain);
-
   const yScale = scaleLinear().range([1, 0]) // low wages are good so flip the range
     .domain(yDomain);
 
+  const regressionLine = regressionLinear()
+    .x(propX)
+    .y(propY)
+    (req.data.results);
+
+  console.log(regressionLine);
+
   // create the vector
+  // either use a weigting to make a rank vector 
+  
+  const weighting = 0.5;
   const rankVector = {
     angle: (Math.PI/2) * weighting,
     origin: [0, 0],
     length: 1 //length doesn't really matter
   };
-
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
+  
+
+  // or make it from the regression line
+  /*
+  const rankLineCoords = [
+    [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
+    [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
+  ];
+  const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
+  */
+
 
   let rankedData = req.data.results.map(row=>{
     const teamNormal = {
@@ -99,8 +117,4 @@ function rankTeams(req, res, next){
   next();
 }
 
-function calculateRegression(req, res, next){
-  next();
-}
-
-module.exports = { calculateRegression, decorateClubData, getSheetData, rankTeams };
+module.exports = { decorateClubData, getSheetData, rankTeams };
