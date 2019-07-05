@@ -25,7 +25,6 @@ function addFilters(env){
   env.addFilter('signed', s => String(`${s >= 0 ? '+' : ''}${s}`));
   env.addFilter('md', (key) => markDownText[key].html);
   env.addFilter('localeString', s => Number(s).toLocaleString());
-
   env.addFilter('table', function(data, config) {
     /* quite a complicated filter:
     config looks like this...  {

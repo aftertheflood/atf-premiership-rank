@@ -120,6 +120,7 @@ function rankTeams(req, res, next){
       d._rank = rankedData.length - i;
       return d;
     })
+  req.regressionLine = regressionLine;
   req.rankingDomain = {
     x: xScale.domain(),
     y: yScale.domain()
