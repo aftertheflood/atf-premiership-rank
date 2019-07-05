@@ -1,4 +1,3 @@
-
 const express = require('express');
 const nunjucks = require('nunjucks');
 const app = express();
@@ -24,6 +23,7 @@ addRoutes(app);
 
 app.use(function (err, req, res, next) {
   console.error(err.message, new Date());
+  console.log(err.stack)
   res.render('error.html.nj', {message: err.message});
 })
 

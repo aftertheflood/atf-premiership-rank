@@ -12,6 +12,7 @@
   }) | safe }}
 </div>
 <div class="content-block indepth">{{ 'how' | md | safe }}</div>
+<object type="image/svg+xml" data="/scatter-plot.svg" class="logo">scatter</object>
 <div class="content-block badges">{% include "badges.html.nj" %}</div>
 
 {% endblock %}

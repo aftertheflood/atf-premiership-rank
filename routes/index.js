@@ -1,4 +1,4 @@
-const { getSheetData, rankTeams, decorateClubData } = require('../model');
+const { getSheetData, rankTeams, decorateClubData, scatterLayout } = require('../model');
 
 function addRoutes(app){
   app.get('/', 
@@ -21,9 +21,16 @@ function addRoutes(app){
     getSheetData,
     rankTeams,
     (req, res) => {
-      console.dir('scatter', res.headersSent)
       res.set('Content-Type','image/svg+xml');
-      res.render('scatter.svg.nj', { imageWidth: 500, imageHeight: 500 })
+      res.render('scatter.svg.nj', scatterLayout(req.rankedResults, req.descaledRankingLine, { 
+        width: 500, 
+        height: 500,
+        margin: { top: 20, left: 50, bottom: 50, right: 20 },
+        xDomain: req.rankingDomain.x,
+        yDomain: req.rankingDomain.y,
+        xLabel: 'Points',
+        yLabel: 'Wage Bill'
+       }))
     });
 
   app.get('/club/:clubid.svg',

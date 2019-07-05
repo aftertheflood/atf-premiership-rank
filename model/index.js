@@ -3,7 +3,7 @@ const { extent, scaleLinear} = require('d3');
 const { regressionLinear } = require('d3-regression');
 const { vector2coords, coords2vector } = require('./vector-line');
 const lineIntersection = require('./line-intersection');
-
+const scatterLayout = require('./scatter-layout');
 
 const docID = '1o7Qg6ElbqI1lo2rfoA_OQAro34NksZmrp_hXdSM9JIE';
 const dataSheet = 'data%202018';
@@ -120,10 +120,18 @@ function rankTeams(req, res, next){
       d._rank = rankedData.length - i;
       return d;
     })
-  
+  req.rankingDomain = {
+    x: xScale.domain(),
+    y: yScale.domain()
+  }
+  req.descaledRankingLine = [
+    [xScale.invert(rankLineCoords[0][0]), yScale.invert(rankLineCoords[0][1])],
+    [xScale.invert(rankLineCoords[1][0]), yScale.invert(rankLineCoords[1][1])]
+  ];
+  req.rankingLine = rankLineCoords
   req.rankedResults = rankedData;
 
   next();
 }
 
-module.exports = { decorateClubData, getSheetData, rankTeams };
+module.exports = { decorateClubData, getSheetData, rankTeams, scatterLayout };

@@ -1,5 +1,1 @@
-{% for row in data.results %}
-<object type="image/svg+xml" data="/club/{{row.code}}.svg" class="logo">
-  Man United
-</object>
-{% endfor %}
+{% for row in data.results %}<object type="image/svg+xml" data="/club/{{row.code}}.svg" class="logo">{{row.club}} Wage bill £{{row.wagebill | localeString}}. ATF rank {{ row._rank }} ({{ (row.position - row._rank) | signed }})</object>{% endfor %}

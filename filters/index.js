@@ -20,10 +20,11 @@ function formatter(classList, s) {
 }
 
 function addFilters(env){
+  env.addFilter('dataSet', obj => Object.entries(obj).map(([k,v])=>`data-${k}="${v}"`).join(' '));
   env.addFilter('logo', imageURL);
-  env.addFilter('signed', s=>String(`${s >= 0 ? '+' : ''}${s}`));
+  env.addFilter('signed', s => String(`${s >= 0 ? '+' : ''}${s}`));
   env.addFilter('md', (key) => markDownText[key].html);
-  env.addFilter('localeString', s=>Number(s).toLocaleString());
+  env.addFilter('localeString', s => Number(s).toLocaleString());
 
   env.addFilter('table', function(data, config) {
     /* quite a complicated filter:

@@ -1,4 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-  width="{{imageWidth}}"
-  height="{{imageHeight}}">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 {{width}} {{height}}"
+  width="{{width}}"
+  height="{{height}}">
+  <g class="axes" transform="translate({{margin.left}}, {{margin.top}})" font-family="Graphik, sans-serif">
+    <line x1="0" y1="0" x2="0" y2="{{plotHeight}}" stroke="#000"></line>
+    <line x1="0" y1="{{plotHeight}}" x2="{{plotWidth}}" y2="{{plotHeight}}" stroke="#000"></line>
+    <text text-anchor="middle" x="{{plotWidth/2}}" dy="20" y="{{plotHeight}}">{{ xLabel }}</text>
+    <text text-anchor="middle" x="0" dy="-10" y="{{plotHeight/2}}" transform="rotate(270, 0, {{plotHeight/2}})">{{ yLabel }}</text>
+  </g>
+  <g class="plot" transform="translate({{margin.left}}, {{margin.top}})">
+    {% for p in points %}
+      <circle cx="{{p.coords[0]}}" cy="{{p.coords[1]}}" r="5" stroke="#000" fill="#F00"></circle>
+    {% endfor %}
+  </g>
+  <g class="annotations" transform="translate({{margin.left}}, {{margin.top}})">
+    <line stroke="#000" x1="{{regressionLine[0][0]}}" y1="{{regressionLine[0][1]}}" x2="{{regressionLine[1][0]}}" y2="{{regressionLine[1][1]}}"></line>
+  </g>
 </svg>
