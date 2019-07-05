@@ -22,6 +22,11 @@ function magnitude([x, y]){
 function decorateClubData(req, res, next){
   if(req.params.clubid != undefined){
     const clubRow = req.data.results.filter(d=>(d.code.toLowerCase() == req.params.clubid.toLowerCase()));
+    if(clubRow.length<1){
+      res.status(404);
+      next(new Error('404: Club not found'));
+      return;
+    }
     req.data.selectedClub = req.data.teams[req.params.clubid][0];
     req.data.selectedClub.data = clubRow[0];
     next();
@@ -45,6 +50,10 @@ function getSheetData(req, res, next){
     .then(([results, teams, sort]) => {
       req.data = { results, teams, sort };
       next();
+    })
+    .catch(err=>{
+      res.status(500);
+      next(new Error('500: Unable to retrieve data'))
     });
 }
 

@@ -16,12 +16,16 @@ app.use(helmet({
   }
 }));
 
-
 const env = nunjucks.configure('views', { autoescape: true, express: app });
 
 addFilters(env);
 
 addRoutes(app);
+
+app.use(function (err, req, res, next) {
+  console.error(err.message, new Date());
+  res.render('error.html.nj', {message: err.message});
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, function(){
