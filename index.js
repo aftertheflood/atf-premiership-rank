@@ -18,7 +18,6 @@ app.use(helmet({
 const env = nunjucks.configure('views', { autoescape: true, express: app });
 
 addFilters(env);
-
 addRoutes(app);
 
 app.use(function (err, req, res, next) {
