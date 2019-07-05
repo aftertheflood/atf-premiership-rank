@@ -2,26 +2,14 @@ require('../text/md-require');
 const imageURL = (clubid)=>`https://aftertheflood.com/wp-content/uploads/2019/07/${clubid}.png`;
 const markDownText = require('../text/index')
 
-const abbreviateNumber = (n)=>{
-  const num = {
-    number:n,
-    order:''
-  }
-  if (n>1000000){
-    num.number = n/100000;
-    num.order = 'm';
-  }else if(n>1000){
-    num.number = n/1000;
-    num.order = 'k';
-  }
-  return num;
+const millions = (n)=>{
+  return n/1000000;
 }
 
 function formatter(classList, s) {
   let formatted = s;
-  if(classList.indexOf('currency') > -1){
-    const numParts = abbreviateNumber(Number(formatted));
-    formatted = `${numParts.order}£${numParts.number.toLocaleString()}`;
+  if(classList.indexOf('millions') > -1){
+    formatted = millions(Number(formatted)).toLocaleString();
   }else if(classList.indexOf('round3') > -1){
     formatted = String(Math.round(Number(s) * 100) / 100);
     while(formatted.length < 4){
@@ -32,11 +20,11 @@ function formatter(classList, s) {
 }
 
 function addFilters(env){
+  env.addFilter('dataSet', obj => Object.entries(obj).map(([k,v])=>`data-${k}="${v}"`).join(' '));
   env.addFilter('logo', imageURL);
-  env.addFilter('signed', s=>String(`${s >= 0 ? '+' : ''}${s}`));
+  env.addFilter('signed', s => String(`${s >= 0 ? '+' : ''}${s}`));
   env.addFilter('md', (key) => markDownText[key].html);
-  env.addFilter('localeString', s=>Number(s).toLocaleString());
-
+  env.addFilter('localeString', s => Number(s).toLocaleString());
   env.addFilter('table', function(data, config) {
     /* quite a complicated filter:
     config looks like this...  {
@@ -53,7 +41,10 @@ function addFilters(env){
     });
     const headings = `<tr>${config.headings.map(heading => `<th>${heading}</th>`).join('')}</tr>`;
 
-    return `<table>${headings} ${rows.join('')}</table>`;
+    return `<table>
+      <thead>${headings}</thead>
+      <tbody>${rows.join('')}</tbody>
+    </table>`;
   });
 }
 

@@ -1,16 +1,18 @@
 {% extends "page.html.nj" %}
 
 {% block content %}
-  Premiership table
-  {{ 'intro' | md | safe}}
-  <hr>
+<div class="content-block intro">{{ 'intro' | md | safe }}</div>
+<div class="content-block">
   {{ data.results | table({
     columns: ['club','points','position','wagebill','_rank','_rankDistance'],
-    headings: ['','Points','Position','Wages','ATF Rank',''],
-    columnClasses: ['','number','number','currency','number','number round3'],
+    headings: ['','Points','Position','Wages (£ millions)','ATF Rank',''],
+    columnClasses: ['','number','number','number millions','number','number round3'],
     sort: 'points',
     rowClass: 'code'
   }) | safe }}
-  <hr>
-  {{ date }}
+</div>
+<div class="content-block indepth">{{ 'how' | md | safe }}</div>
+<object type="image/svg+xml" data="/scatter-plot.svg" class="logo">scatter</object>
+<div class="content-block badges">{% include "badges.html.nj" %}</div>
+
 {% endblock %}
