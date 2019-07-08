@@ -60,16 +60,17 @@ function getSheetData(req, res, next){
 function rankTeams(req, res, next){
   // Wage Weighting 0-1
   // 0 is 100% property x 1 is 100% property y
-  const propX = d=> Number(d['points']); // high points total is good
-  const propY = d=> Number(d['wagebill']); // low wage bill is good 
+  const propY = d=> Number(d['points']);    // high points total is good
+  const propX = d=> Number(d['wagebill']);  // low wage bill is good 
 
   // work out the scales to normalise the values to between 0 and 1
   const xDomain = extent(req.data.results, propX);
   const yDomain = extent(req.data.results, propY);
 
-  const xScale = scaleLinear().range([0, 1])
+  const xScale = scaleLinear().range([1, 0]) // TODO flip
     .domain(xDomain);
-  const yScale = scaleLinear().range([1, 0]) // low wages are good so flip the range
+
+  const yScale = scaleLinear().range([0, 1]) 
     .domain(yDomain);
 
   const regressionLine = regressionLinear()
