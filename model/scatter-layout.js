@@ -21,7 +21,7 @@ module.exports = (data, line, config)=>{
 
   points = data.map(d=>({
     dataSet: { wagebill:d.wagebill, points:d.points, club:d.club, code:d.code },
-    coords: [scaleX(d['points']), scaleY(d['wagebill'])]
+    coords: [scaleX(d['wagebill']), scaleY(d['points'])]
   }));
   const xMid = config.xDomain[0] + (config.xDomain[1]-config.xDomain[0])/2;
   const regressionLabelCoords = [scaleX(xMid), scaleY(line.predict(xMid))];
@@ -37,7 +37,7 @@ module.exports = (data, line, config)=>{
     regressionLine,
     regressionLabelCoords,
     regressionLabel:'wages -- points',
-    xLabel: 'Points',
-    yLabel: 'Wage Bill',
+    yLabel: config.yLabel,
+    xLabel: config.xLabel,
   };
 }

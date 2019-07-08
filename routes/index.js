@@ -28,8 +28,8 @@ function addRoutes(app){
         margin: { top: 20, left: 50, bottom: 50, right: 20 },
         xDomain: req.rankingDomain.x,
         yDomain: req.rankingDomain.y,
-        xLabel: 'Points',
-        yLabel: 'Wage Bill'
+        yLabel: 'Points',
+        xLabel: 'Wage Bill'
        }))
     });
 
