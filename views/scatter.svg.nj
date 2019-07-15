@@ -11,7 +11,7 @@
     </g>
     <g class="plot" transform="translate({{margin.left}}, {{margin.top}})">
       {% for p in points %}
-        <circle {{ p.dataSet | dataSet | safe }} cx="{{p.coords[0]}}" cy="{{p.coords[1]}}" r="5" stroke="#000" fill="#F00"></circle>
+        <circle {{ p.dataSet | dataSet | safe }} cx="{{p.coords[0]}}" cy="{{p.coords[1]}}" r="5" stroke="#000" fill="{{p.fill}}"></circle>
       {% endfor %}
     </g>
     <g class="annotations" transform="translate({{margin.left}}, {{margin.top}})">

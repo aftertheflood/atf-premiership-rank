@@ -78,7 +78,7 @@ function rankTeams(req, res, next){
     .y(propY)
     (req.data.results);
 
-  console.log(regressionLine);
+//  console.log(regressionLine);
 
   // create the vector
   // either use a weigting to make a rank vector 
@@ -119,8 +119,9 @@ function rankTeams(req, res, next){
   rankedData = rankedData.sort((a,b) => (a._rankDistance - b._rankDistance))
     .map((d,i)=>{ 
       d._rank = rankedData.length - i;
+      d._rankDifference = d.position - d._rank;
       return d;
-    })
+    });
   req.regressionLine = regressionLine;
   req.rankingDomain = {
     x: xScale.domain(),
