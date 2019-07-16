@@ -5,6 +5,7 @@ const { vector2coords, coords2vector } = require('./vector-line');
 const lineIntersection = require('./line-intersection');
 const scatterLayout = require('./scatter-layout');
 
+
 const seasonKey = 2018;
 const docID = '1o7Qg6ElbqI1lo2rfoA_OQAro34NksZmrp_hXdSM9JIE';
 const dataSheet = `data%20${seasonKey}`;
@@ -38,6 +39,7 @@ function decorateClubData(req, res, next){
 }
 
 function getSheetData(req, res, next){
+
   const dataGet = fetch(dataURL);
   const teamsGet = fetch(teamDataURL);
   const sortOrderGet = fetch(sortOrderURL);
@@ -142,4 +144,9 @@ function rankTeams(req, res, next){
   next();
 }
 
-module.exports = { decorateClubData, getSheetData, rankTeams, scatterLayout };
+module.exports = { 
+  decorateClubData, 
+  getSheetData, 
+  rankTeams, 
+  scatterLayout 
+};

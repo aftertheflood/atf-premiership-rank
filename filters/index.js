@@ -42,7 +42,11 @@ function addFilters(env){
       sort: 'points',
       rowClass: 'code'
     } */
-    const rows = data.map(row => {
+    const rows = data.sort((a,b)=>{
+      if(a[config.sort]>b[config.sort]){
+        return 1;
+      }else{ return -1; }
+    }).map(row => {
       const cells = config.columns
         .map((property,i)=>`<td class="${property} ${config.columnClasses[i]}">${formatter(config.columnClasses[i], row[property])}</td>`);
       return `<tr class="${row[config.rowClass]}">${cells.join('')}</tr>`;
