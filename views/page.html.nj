@@ -70,7 +70,7 @@
 
 <body>
 {% block content %}
-DEFAULT!
+
 {% endblock %}
 <footer>
   <p>
