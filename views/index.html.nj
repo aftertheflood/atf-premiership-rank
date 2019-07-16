@@ -15,4 +15,5 @@
     rowClass: 'code'
   }) | safe }}
 </div>
+<div class="content-block intro">{{ 'how' | md | safe }}</div>
 {% endblock %}

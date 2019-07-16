@@ -4,6 +4,9 @@
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css">
   <style>
+  p{
+    max-width:800px;
+  }
   .intro h1{
     line-height: 70px;
     padding-left: 0px
