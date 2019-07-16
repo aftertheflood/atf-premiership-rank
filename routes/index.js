@@ -4,7 +4,19 @@ function addRoutes(app){
   app.get('/', 
     getSheetData,
     rankTeams,
-    (req, res) => res.render('index.html.nj', {data:req.data, date:new Date()}));
+    (req, res) => {
+      res.render('index.html.nj', {
+        data:req.data,
+        gameWeek: req.data.config['game week'][0].value,
+        season: req.data.config['season name'][0].value,
+        date:new Date()
+      })
+    });
+  
+  app.get('/table', 
+    getSheetData,
+    rankTeams,
+    (req, res) => res.render('detail-table.html.nj', {data:req.data, date:new Date()}));
 
   app.get('/table.json', 
     getSheetData,

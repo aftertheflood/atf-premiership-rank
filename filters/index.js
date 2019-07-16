@@ -47,7 +47,7 @@ function addFilters(env){
         .map((property,i)=>`<td class="${property} ${config.columnClasses[i]}">${formatter(config.columnClasses[i], row[property])}</td>`);
       return `<tr class="${row[config.rowClass]}">${cells.join('')}</tr>`;
     });
-    const headings = `<tr>${config.headings.map(heading => `<th>${heading}</th>`).join('')}</tr>`;
+    const headings = `<tr>${config.headings.map((heading,i) => `<th class="${config.columnClasses[i]} ${config.columns[i]}">${heading}</th>`).join('')}</tr>`;
 
     return `<table>
       <thead>${headings}</thead>

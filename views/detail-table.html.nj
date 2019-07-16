@@ -1,0 +1,13 @@
+{% extends "page.html.nj" %}
+{% block content %}
+<h1>TABLE</h1>
+<div class="content-block">
+  {{ data.results | table({
+    columns: ['club','points','position','wagebill','_rank','_rankDifference'],
+    headings: ['','Points','Position','Wages (£ millions)','ATF Rank',''],
+    columnClasses: ['','number','number','number millions','number','number color'],
+    sort: 'points',
+    rowClass: 'code'
+  }) | safe }}
+</div>
+{% endblock %}

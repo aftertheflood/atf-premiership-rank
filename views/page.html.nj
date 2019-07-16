@@ -5,24 +5,48 @@
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css">
   <style>
   .intro h1{
-    line-height:70px;
-    padding-left:0px
+    line-height: 70px;
+    padding-left: 0px
   }
 
+  table{
+    font-size: 25px;
+    line-height: 2.7rem;
+  }
   td.number{
-    text-align:right;
+    text-align: right;
     font-variant-numeric: tabular-nums;
   }
   td.currency{
-    text-align:right;
+    text-align: right;
     font-variant-numeric: tabular-nums;
   }
+
+  th.wagebill{
+    margin.left: -20px;
+  }
+
+  tbody tr:nth-of-type(4) {
+    border-bottom: solid 1px #19c1df;
+  }
+
+  tbody tr:nth-of-type(5) {
+    border-bottom: dashed 1px #19c1df;
+  }
+
+  tbody tr:nth-of-type(18) {
+    border-top: solid 1px #19c1df;
+  }
+
   td{
-    padding-left: 13px;
-    padding-right: 13px;
+    padding-left: 10px;
   }
   th{
-    padding:15px;
+    padding: 15px;
+  }
+
+  ._rank{
+    font-weight: bold;
   }
 
   th{
@@ -45,5 +69,14 @@
 {% block content %}
 DEFAULT!
 {% endblock %}
+<footer>
+  <p>
+    <a href="aftertheflood.com/">After the flood</a>
+    <br>140–142 St John St, London, EC1V 4UB, UK
+    <br>info@aftertheflood.com
+    <br><a href="href=https://twitter.com/AftertheFloodco">@Afterthefloodco</a>
+    <br>Registered in England and Wales as After the flood Limited. 7792366
+  </p>
+</footer>
 </body>
 </html>

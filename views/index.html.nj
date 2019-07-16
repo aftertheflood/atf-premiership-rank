@@ -3,16 +3,16 @@
 {% block content %}
 <div class="content-block intro">{{ 'intro' | md | safe }}</div>
 <div class="content-block">
+  <h3>Week {{ gameWeek }}, {{ season }} season</h3>
   {{ data.results | table({
-    columns: ['club','points','position','wagebill','_rank','_rankDifference'],
-    headings: ['','Points','Position','Wages (£ millions)','ATF Rank',''],
-    columnClasses: ['','number','number','number millions','number','number color'],
+    headings: 
+      ['','','Wages (£m)','LWL Rank'],
+    columns: 
+      ['position','club','wagebill','_rank'],
+    columnClasses: 
+      ['number','','number millions','number'],
     sort: 'points',
     rowClass: 'code'
   }) | safe }}
 </div>
-<div class="content-block indepth">{{ 'how' | md | safe }}</div>
-<object type="image/svg+xml" data="/scatter-plot.svg" class="logo">scatter</object>
-<div class="content-block badges">{% include "badges.html.nj" %}</div>
-<div class="content-block intro">{{ 'footer' | md | safe }}</div>
 {% endblock %}

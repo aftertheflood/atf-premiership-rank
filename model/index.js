@@ -5,15 +5,18 @@ const { vector2coords, coords2vector } = require('./vector-line');
 const lineIntersection = require('./line-intersection');
 const scatterLayout = require('./scatter-layout');
 
+const seasonKey = 2018;
 const docID = '1o7Qg6ElbqI1lo2rfoA_OQAro34NksZmrp_hXdSM9JIE';
-const dataSheet = 'data%202018';
+const dataSheet = `data%20${seasonKey}`;
 const teamDetails = 'dictionary/club%20details-by-code';
 const sortOrder = 'dictionary/sort%20order-by-turnover';
+const configuration = 'dictionary/configuration-by-key';
 
 const appRoot = 'https://atf-exprecsv.herokuapp.com/data/';
 const dataURL = `${appRoot}${docID}/${dataSheet}.json`;
 const teamDataURL = `${appRoot}${docID}/${teamDetails}.json`;
 const sortOrderURL = `${appRoot}${docID}/${sortOrder}.json`;
+const configurationURL = `${appRoot}${docID}/${configuration}.json`;
 
 function magnitude([x, y]){
   return Math.sqrt(x*x + y*y)
@@ -38,17 +41,19 @@ function getSheetData(req, res, next){
   const dataGet = fetch(dataURL);
   const teamsGet = fetch(teamDataURL);
   const sortOrderGet = fetch(sortOrderURL);
+  const configurationGet = fetch(configurationURL);
 
-  Promise.all([dataGet, teamsGet, sortOrderGet])
-    .then( ([results, teams, sort]) => {
+  Promise.all([dataGet, teamsGet, sortOrderGet, configurationGet])
+    .then( ([results, teams, sort, config]) => {
       return Promise.all([
         results.json(),
         teams.json(),
-        sort.json()
+        sort.json(),
+        config.json()
       ]);
     })
-    .then(([results, teams, sort]) => {
-      req.data = { results, teams, sort };
+    .then(([results, teams, sort, config]) => {
+      req.data = { results, teams, sort, config };
       next();
     })
     .catch(err=>{
