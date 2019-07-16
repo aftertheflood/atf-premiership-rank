@@ -1,8 +1,11 @@
-const {scaleLinear} = require('d3');
+const {scaleLinear, scaleSequential, interpolateWarm } = require('d3');
 const {coords2vector} = require('./vector-line');
 module.exports = (data, line, config)=>{
   const plotWidth = config.width - (config.margin.left + config.margin.right);
   const plotHeight = config.height - (config.margin.bottom + config.margin.top);
+
+  const colourScale = scaleSequential(interpolateWarm)
+    .domain([-17,12]);
 
   const scaleX = scaleLinear()
     .domain(config.xDomain)
@@ -21,7 +24,8 @@ module.exports = (data, line, config)=>{
 
   points = data.map(d=>({
     dataSet: { wagebill:d.wagebill, points:d.points, club:d.club, code:d.code },
-    coords: [scaleX(d['wagebill']), scaleY(d['points'])]
+    coords: [scaleX(d['wagebill']), scaleY(d['points'])],
+    fill: colourScale(d._rankDifference),
   }));
   const xMid = config.xDomain[0] + (config.xDomain[1]-config.xDomain[0])/2;
   const regressionLabelCoords = [scaleX(xMid), scaleY(line.predict(xMid))];
