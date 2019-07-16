@@ -11,7 +11,7 @@
       ['position','club','wagebill','_rank'],
     columnClasses: 
       ['number','','number millions','number'],
-    sort: 'points',
+    sort: '_rank',
     rowClass: 'code'
   }) | safe }}
 </div>
