@@ -37,6 +37,18 @@ function addRoutes(app){
         });
     });
   
+  
+  app.get('/graphic-table',
+    cacheGet,
+    getSheetData,
+    rankTeams,
+    (req, res) => res.render('graphic-table.html.nj', 
+      {data:req.data, date:new Date()},
+      (err, markup) => {
+        cache.set(req.url, markup);
+        res.send(markup);
+      }));
+
   app.get('/table', 
     cacheGet,
     getSheetData,
