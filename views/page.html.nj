@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Level Wages League - After the flood.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/fonts.css">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css">
+  <meta name="Description" content="{{ 'intro' | md | safe }}">
   <style>
   p{
     max-width:800px;
@@ -65,8 +68,8 @@
   .content-block{
     padding: 30px;
   }
+  {% block style %}{% endblock %}
   </style>
-  <script>console.log('inline-script')</script>
 </head>
 
 <body>
@@ -83,4 +86,6 @@
   </p>
 </footer>
 </body>
+{% block interactivity %}
+{% endblock %}
 </html>
