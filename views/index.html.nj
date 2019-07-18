@@ -76,8 +76,13 @@ document.querySelector('table')
         method = 'numeric'
       }
       element.addEventListener('click', event => {
-        sortTable(i, method, 1);
+        let sortDir = 1;
+        if(element.getAttribute('data-sorted')){
+          sortDir = element.getAttribute('data-sorted') * -1;
+        }
+        sortTable(i, method, sortDir);
         // mark as sorted
+        element.setAttribute('data-sorted', sortDir)
       });
     });
 
