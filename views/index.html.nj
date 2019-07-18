@@ -1,16 +1,4 @@
-
-
 {% extends "page.html.nj" %}
-
-{% block style %}
-  th{
-    cursor:pointer;
-  }
-
-  th:hover{
-    background-color: red;
-  }
-{% endblock %}
 
 {% block content %}
 <div class="content-block intro">{{ 'intro' | md | safe }}</div>
@@ -49,7 +37,6 @@ const tableToData = (tableBody)=>{
 };
 
 const dataToTable = (tableBody, tableData)=>{
-  console.log(tableData);
   tableBody.querySelectorAll('tr')
     .forEach((row, i)=>{
       const rowData = tableData[i];

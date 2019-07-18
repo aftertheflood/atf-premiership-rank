@@ -68,6 +68,20 @@
   .content-block{
     padding: 30px;
   }
+  
+  th{
+    cursor:pointer;
+  }
+
+  th:hover{
+    background-color: #19c1df;
+    color: white;
+  }
+
+  tbody tr:hover{
+    background-color: #19c1df;
+    color: white;
+  }
   {% block style %}{% endblock %}
   </style>
 </head>
