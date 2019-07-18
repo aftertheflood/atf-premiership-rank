@@ -12,10 +12,9 @@ const { getSheetData, rankTeams, decorateClubData, scatterLayout } = require('.
 const cacheGet = (req, res, next)=>{
   const cacheValue = cache.get(req.url);
   if(cacheValue){
-    console.log('retrieved from cache!')
     res.send(cacheValue);
   }else{
-    console.log('not cached')
+    console.log(`not cached ${req.url}`);
     next();
   }
 }
