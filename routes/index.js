@@ -14,7 +14,6 @@ const cacheGet = (req, res, next)=>{
   if(cacheValue){
     res.send(cacheValue);
   }else{
-    console.log(`not cached ${req.url}`);
     next();
   }
 }
