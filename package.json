@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "d3": "^5.9.7",
     "d3-regression": "^1.2.4",
     "express": "^4.17.1",
