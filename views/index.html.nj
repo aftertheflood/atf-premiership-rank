@@ -1,40 +1,44 @@
 {% extends "page.html.nj" %}
 
 {% block content %}
-<div class="content-block intro">{{ 'intro' | md | safe }}</div>
-<div class="content-block">
-  <h3>Week {{ gameWeek }}, {{ season }} season</h3>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Club</th>
-        <th>Wages (£m)</th>
-        <th>LWL Rank</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for row in data.results %}
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-  </table>
-  {{ data.results | table({
-    headings: 
-      ['','','Wages (£m)','LWL Rank'],
-    columns: 
-      ['position','club','wagebill','_rank'],
-    columnClasses: 
-      ['number','','number millions','number'],
-    sort: '_rank',
-    rowClass: 'code'
-  }) | safe }}
+
+<div class="content">
+
+  <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
+  <div class="content-block the-table">
+    <h3>Week {{ gameWeek }}, {{ season }} season</h3>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Club</th>
+          <th>Wages (£m)</th>
+          <th>LWL Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for row in data.results %}
+        <tr>
+          <td class="number">{{ row.position }}</td>
+          <td class="text">{{ row.club }}</td>
+          <td class="number millions">{{ row.wagebill/1000000 }}</td>
+          <td class="number">{{ row._rank }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {{ data.results | table({
+      headings: 
+        ['','Club','Wages (£m)','LWL Rank'],
+      columns: 
+        ['position','club','wagebill','_rank'],
+      columnClasses: 
+        ['number','text','number millions','number'],
+      sort: '_rank',
+      rowClass: 'code'
+    }) | safe }}
+  </div>
+  <div class="content-block text-block">{{ 'how' | md | safe }}</div>
 </div>
-<div class="content-block intro">{{ 'how' | md | safe }}</div>
+
 {% endblock %}
