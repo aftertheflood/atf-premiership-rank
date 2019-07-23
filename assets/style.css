@@ -1,8 +1,15 @@
+@font-face {
+	font-family: 'Tiempos';
+	src: url('fonts/TiemposTextWeb-Regular.eot');
+	src: url('fonts/TiemposTextWeb-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/TiemposTextWeb-Regular.woff') format('woff');
+}
+
+
 /* Overrides */
 body {
   margin: 0px;
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-
+  background: linear-gradient(188deg, rgba(0,217,236,1) 0%, rgba(0,82,199,1) 10%, rgba(0,27,185,1) 40%, rgba(78,0,163,1) 75%, rgba(32,0,40,1) 100%);
 }
 
 
@@ -98,6 +105,7 @@ p {
   margin-bottom: 0;
   width: 100%;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
 }
 
 
@@ -170,7 +178,7 @@ h3 {
   font-weight: 400;
   font-size: 18px;
   letter-spacing: 0.1em;
-  color: #000;
+  color: rgba(0,0,0,0.5);
   margin: 0;
   padding: 14px 0 15px 17px;
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
@@ -190,45 +198,107 @@ h3 {
   .heading {
     padding: 60px 0 90px 0;
     margin: 0 70px;
-    border-bottom: 24px solid white;
+    border-bottom: 23px solid white;
   }
-  .heading h1 {
-    font-size: 120px;
-  }
+  .heading h1 {font-size: 120px;}
   table {font-size: 26px;}
   td, th {padding: 9px 18px 13px 18px;}
   h3 {font-size: 15px;}
-  p {
-    font-size: 21px;
-  }
+  p {font-size: 21px;}
 }
 
 
 @media only screen and (max-width: 900px) {
   .the-table {width: 100%;}
-  .heading h1 {
-    font-size: 100px;
-  }
+  .heading {border-bottom: 22px solid white;}
+  .heading h1 {font-size: 100px;}
+  td, th {padding: 9px 24px 13px 24px;}
 }
 
 
 @media only screen and (max-width: 770px) {
+  .content-block.text-block {
+    max-width: 770px;
+    padding: 34px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  .heading {
+    /* padding: 60px 0 90px 0; */
+    margin: 0 34px;
+    border-bottom: 21px solid white;
+  }
+  h3 {padding: 12px 0 12px 34px;}
   table {font-size: 22px;}
-  td, th {padding: 7px 12px 9px 12px;}
+  td, th {padding: 7px 34px 9px 34px;}
 }
 
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 660px) {
   .content-block.text-block {padding: 24px;}
   .heading {
     padding: 50px 0 70px 0;
     margin: 0 24px;
     border-bottom: 16px solid white;
   }
-  .heading h1 {
-    font-size: 70px;
+  .heading h1 {font-size: 70px;}
+  h3 {
+    padding: 10px 0 10px 24px;
+    font-size: 14px;
   }
+  p {font-size: 20px;}
+  table {font-size: 20px;}
+  td, th {padding: 7px 24px 9px 24px;}
+}
+
+@media only screen and (max-width: 450px) {
+  .content-block.text-block {padding: 20px;}
+  .heading {
+    padding: 46px 0 66px 0;
+    margin: 0 20px;
+    border-bottom: 14px solid white;
+  }
+  .heading h1 {font-size: 66px;}
+  h3 {
+    padding: 8px 0 8px 20px;
+    font-size: 12px;
+  }
+  p {font-size: 18px;}
+  table {font-size: 18px;}
+  td, th {padding: 7px 20px 9px 20px;}
 }
 
 
 
+/* The footer
+------------------------------------------------------------------ */
+footer {
+  margin-top: auto;
+  /* height: 100%; */
+  /* width: 100%; */
+  background-image: url("https:/tools.aftertheflood.com/assets/images/atf-logo-clipped-white-translucent.png");
+  background-size: contain;
+  /* background-size: 100%; */
+  /* background-color: #4d3500; */
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: center bottom;
+  padding: 0 26px 0 18px;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 660px) {footer {padding: 0 40px 0 27px;}}
+footer p {
+  margin-bottom: 0;
+  padding: 12px 0 70px 2px;
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+footer p a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.7);
+}
+footer p a:hover {color: rgba(255,255,255,1);}
+@media only screen and (min-width: 660px) {footer p {padding: 22px 0 120px 3px;}}
+@media only screen and (min-width: 770px) {footer p {padding: 22px 0 120px 3px;}}
+@media only screen and (min-width: 900px) {footer p {padding: 22px 0 150px 3px;}}
