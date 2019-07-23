@@ -29,6 +29,11 @@ const dataToTable = (tableBody, tableData)=>{
 
 const sortTable = (columnNumber, method, direction) => {
   const tableData = tableToData(document.querySelector('table tbody'));
+  // mark all cells unsorted
+  document.querySelectorAll('td, th')
+    .forEach((el)=>{
+      el.classList.remove( 'sorted-on' );
+    });
 
   // sort the data
   if(method == 'numeric'){
@@ -46,6 +51,16 @@ const sortTable = (columnNumber, method, direction) => {
   // put the data back into the table
   dataToTable(document.querySelector('table tbody'), tableData);
   //mark the sorted column
+  document.querySelectorAll('tr')
+    .forEach((el)=>{
+      el.querySelectorAll('td, th')
+        .forEach((el, i)=>{
+          if(i==columnNumber){
+            el.classList.add( 'sorted-on' );
+          }
+        })
+    })
+
 }
 
 

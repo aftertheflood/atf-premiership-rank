@@ -22,7 +22,7 @@
           <td class="position number">{{ row.position }}</td>
           <td class="club text"><img src="/assets/{{row.code}}.gif">{{ row.club }}</td>
           <td class="wagebill number millions">{{ row.wagebill/1000000 }}</td>
-          <td class="_rank number">{{ row._rank }}</td>
+          <td class="_rank number sorted-on">{{ row._rank }}</td>
         </tr>
       {% endfor %}
       </tbody>
