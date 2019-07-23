@@ -1,19 +1,25 @@
 {% extends "page.html.nj" %}
 
 {% block content %}
-<div class="content-block intro">{{ 'intro' | md | safe }}</div>
-<div class="content-block">
-  <h3>Week {{ gameWeek }}, {{ season }} season</h3>
-  {{ data.results | table({
-    headings: 
-      ['','','Wages (£m)','LWL Rank'],
-    columns: 
-      ['position','club','wagebill','_rank'],
-    columnClasses: 
-      ['number','','number millions','number'],
-    sort: '_rank',
-    rowClass: 'code'
-  }) | safe }}
+
+<div class="content">
+
+  <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
+  <div class="content-block the-table">
+    <h3>Week {{ gameWeek }}, {{ season }} season</h3>
+    {{ data.results | table({
+      headings: 
+        ['','Club','Wages (£m)','LWL Rank'],
+      columns: 
+        ['position','club','wagebill','_rank'],
+      columnClasses: 
+        ['number','text','number millions','number'],
+      sort: '_rank',
+      rowClass: 'code'
+    }) | safe }}
+  </div>
+  <div class="content-block text-block">{{ 'how' | md | safe }}</div>
+
 </div>
-<div class="content-block intro">{{ 'how' | md | safe }}</div>
+
 {% endblock %}
