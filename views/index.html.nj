@@ -3,23 +3,32 @@
 {% block content %}
 
 <div class="content">
-
   <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
   <div class="content-block the-table">
     <h3>Week {{ gameWeek }}, {{ season }} season</h3>
-    {{ data.results | table({
-      headings: 
-        ['','Club','Wages (£m)','LWL Rank'],
-      columns: 
-        ['position','club','wagebill','_rank'],
-      columnClasses: 
-        ['number','text','number millions','number'],
-      sort: '_rank',
-      rowClass: 'code'
-    }) | safe }}
+    <table>
+      <thead>
+        <tr>
+          <th class="number"></th>
+          <th>Club</th>
+          <th class="number">Wages (£m)</th>
+          <th class="number">LWL Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {% for row in data.results | sort(false, false, '_rank')%}
+        <tr>
+          <td class="position number">{{ row.position }}</td>
+          <td class="club text"><img src="/assets/{{row.code}}.gif">{{ row.club }}</td>
+          <td class="wagebill number millions">{{ row.wagebill/1000000 }}</td>
+          <td class="_rank number">{{ row._rank }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
   </div>
   <div class="content-block text-block">{{ 'how' | md | safe }}</div>
-
 </div>
 
 {% endblock %}
