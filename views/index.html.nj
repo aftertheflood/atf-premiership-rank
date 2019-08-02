@@ -9,8 +9,8 @@
     <table>
       <thead>
         <tr>
-          <th class="number"></th>
-          <th>Club</th>
+          <th class="position number"></th>
+          <th class="club">Club</th>
           <th class="number">Wages (£m)</th>
           <th class="number">LWL Rank</th>
         </tr>
@@ -20,7 +20,16 @@
       {% for row in data.results | sort(false, false, '_rank')%}
         <tr>
           <td class="position number">{{ row.position }}</td>
-          <td class="club text"><img src="/assets/{{row.code}}.gif">{{ row.club }}</td>
+          <td class="club text">
+            <div class="club-wrapper">
+              <div class="club-badge-wrapper">
+                <img src="/assets/badges/{{row.code}}.png" class="club-badge">
+              </div>
+              <span class="club-name">{{ row.club }}</span>
+              <span class="club-name-medium">{{ row.club }} ({{ row.position }})</span>
+              <span class="club-name-short">{{ row.code }} ({{ row.position }})</span>
+            </div>
+          </td>
           <td class="wagebill number millions">{{ row.wagebill/1000000 }}</td>
           <td class="_rank number sorted-on">{{ row._rank }}</td>
         </tr>
