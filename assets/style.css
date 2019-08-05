@@ -122,6 +122,9 @@ table {
   line-height: 1.2em;
 }
 
+tbody tr{
+  background-color:white;
+}
 tbody tr:hover {
   background-color: #FF611E;
   color: white;
@@ -134,10 +137,39 @@ th {
   cursor: pointer;
   text-align: right;
   color: #000;
+  background-position: 96%;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
 }
 th:hover {
   background-color: #000;
   color: #fff;
+}
+
+th.number{
+  background-position: 4%;
+}
+
+.sort-icon{
+  fill: none;
+  width: 16px;
+  height: 16px;
+  padding-inline-start: 20px;
+}
+
+th.sorted-asc .sort-icon .asc{
+  fill: #000;
+}
+th.sorted-asc:hover .sort-icon .asc{
+  fill: #FFF;
+}
+
+
+th.sorted-desc .sort-icon .desc{
+  fill: #000;
+}
+th.sorted-desc:hover .sort-icon .desc{
+  fill: #FFF;
 }
 
 /* Table cell spacing, general */
@@ -154,6 +186,7 @@ td.club {
 td.number {
   text-align: right;
   font-variant-numeric: tabular-nums;
+  padding-right: 50px;
 }
 td.currency {
   text-align: right;
@@ -253,7 +286,9 @@ h3 {
   .heading h1 {font-size: 100px;}
   h3 {padding: 12px 0 12px 34px;}
   table {font-size: 22px;}
-  td, th {padding: 7px 34px 9px 34px;}
+  td {padding: 7px 34px 9px 34px;}
+  td.number {padding-right: 55px;}
+  th {padding: 7px 34px 9px 18px;}
   .club-badge-wrapper {
     height: 26px; 
     margin-top: -12px;
@@ -270,6 +305,11 @@ h3 {
   }
   th.position, 
   td.position {display: none;}
+  .sort-icon{
+    width: 13px;
+    height: 13px;
+    padding-left: 10px;
+  }
 }
 
 
@@ -297,6 +337,18 @@ h3 {
   p {font-size: 20px;}
   table {font-size: 20px;}
   td, th {padding: 7px 24px 9px 24px;}
+  th{
+    text-align: center;
+  }
+  th.club{
+    text-align: center;
+    max-width: 250px;
+  }
+  .sort-icon{
+    width: 11px;
+    height: 11px;
+    padding-left: 10px;
+  }
 }
 
 
@@ -315,6 +367,13 @@ h3 {
   p {font-size: 18px;}
   table {font-size: 18px;}
   td, th {padding: 7px 20px 9px 20px;}
+  .sort-icon{
+    width: 11px;
+    height: 11px;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+  }
 }
 
 
