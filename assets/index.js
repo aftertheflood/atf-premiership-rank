@@ -33,6 +33,8 @@ const sortTable = (columnNumber, method, direction) => {
   document.querySelectorAll('td, th')
     .forEach((el)=>{
       el.classList.remove( 'sorted-on' );
+      el.classList.remove( 'sorted-asc' );
+      el.classList.remove( 'sorted-desc' );
     });
 
   // sort the data
@@ -57,6 +59,11 @@ const sortTable = (columnNumber, method, direction) => {
         .forEach((el, i)=>{
           if(i==columnNumber){
             el.classList.add( 'sorted-on' );
+            if(direction===-1){
+              el.classList.add( 'sorted-desc' );
+            }else{
+              el.classList.add( 'sorted-asc' );
+            }
           }
         })
     })

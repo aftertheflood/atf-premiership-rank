@@ -134,10 +134,32 @@ th {
   cursor: pointer;
   text-align: right;
   color: #000;
+  background-position: 96%;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
 }
 th:hover {
   background-color: #000;
   color: #fff;
+}
+
+th.number{
+  background-position: 4%;
+}
+
+th.sorted-asc{
+  background-image: url('/assets/icon/up-triangle.svg');
+}
+
+th.sorted-asc:hover{
+  background-image: url('/assets/icon/up-triangle-hover.svg');
+}
+
+th.sorted-desc{
+  background-image: url('/assets/icon/down-triangle.svg');
+}
+th.sorted-desc:hover{
+  background-image: url('/assets/icon/down-triangle-hover.svg');
 }
 
 /* Table cell spacing, general */
