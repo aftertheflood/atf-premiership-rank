@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<div class="content">
-  <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
+  <div class="content-block text-block">
+  {{ 'intro' | md | safe }}
+  </div>
   <div class="content-block the-table">
     <h3>Week {{ gameWeek }}, {{ season }} season</h3>
     <table>

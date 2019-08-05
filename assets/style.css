@@ -31,7 +31,10 @@ html {
 
 /* Layout, centering, etc.
 ------------------------------------------------------------------ */
-.content {
+hr{
+  border: 0px;
+  border-bottom: 1px dashed white;
+  width:50%;
 }
 
 .content-block {
