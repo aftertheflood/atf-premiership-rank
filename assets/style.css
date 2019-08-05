@@ -182,6 +182,7 @@ td.club {
 td.number {
   text-align: right;
   font-variant-numeric: tabular-nums;
+  padding-right: 50px;
 }
 td.currency {
   text-align: right;
