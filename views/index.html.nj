@@ -2,18 +2,20 @@
 
 {% block content %}
 
-<div class="content">
-  <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
+  <div class="content-block text-block">
+  {{ 'intro' | md | safe }}
+  <p><a href="https://www.aftertheflood.com/journal">Learn more about why we did this in our journal post.</a></p>
+  </div>
   <div class="content-block the-table">
     <h3>Week {{ gameWeek }}, {{ season }} season</h3>
     <table>
       <thead>
         <tr>
-          <th class="club">Club (league pos.)&nbsp;<svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="desc" d="M37.5 74L1 1h73L37.5 74z"/><path class="asc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
+          <th class="club">Club (league&nbsp;pos.) <svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="desc" d="M37.5 74L1 1h73L37.5 74z"/><path class="asc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
           </th>
-          <th class="number">Wages (£m)&nbsp;<svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="asc" d="M37.5 74L1 1h73L37.5 74z"/><path class="desc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
+          <th class="number">Wages (£m)<svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="asc" d="M37.5 74L1 1h73L37.5 74z"/><path class="desc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
           </th>
-          <th class="number">LWL Rank&nbsp;<svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="desc" d="M37.5 74L1 1h73L37.5 74z"/><path class="asc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
+          <th class="number">LWL Rank<svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="desc" d="M37.5 74L1 1h73L37.5 74z"/><path class="asc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
           </th>
         </tr>
       </thead>
@@ -39,6 +41,5 @@
     </table>
   </div>
   <div class="content-block text-block">{{ 'how' | md | safe }}</div>
-</div>
 
 {% endblock %}
