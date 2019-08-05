@@ -139,7 +139,7 @@ function rankTeams(req, res, next){
     [xScale.invert(rankLineCoords[1][0]), yScale.invert(rankLineCoords[1][1])]
   ];
   req.rankingLine = rankLineCoords
-  req.rankedResults = rankedData;
+  req.rankedResults;
 
   next();
 }

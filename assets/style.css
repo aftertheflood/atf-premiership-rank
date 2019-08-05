@@ -1,74 +1,353 @@
-p{
-  max-width:800px;
-}
-.intro h1{
-  line-height: 70px;
-  padding-left: 0px
-}
-
-table{
-  font-size: 25px;
-  line-height: 2.7rem;
-}
-td.number{
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-td.currency{
-  text-align: right;
-  font-variant-numeric: tabular-nums;
+@font-face {
+	font-family: 'Tiempos';
+	src: url('fonts/TiemposTextWeb-Regular.eot');
+	src: url('fonts/TiemposTextWeb-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/TiemposTextWeb-Regular.woff') format('woff');
 }
 
-th.wagebill{
-  margin.left: -20px;
+
+/* Overrides */
+body {
+  margin: 0px;
+  background: linear-gradient(188deg, rgba(0,217,236,1) 0%, rgba(0,82,199,1) 10%, rgba(0,27,185,1) 40%, rgba(78,0,163,1) 75%, rgba(32,0,40,1) 100%);
 }
 
-tbody tr:nth-of-type(4) {
-  border-bottom: solid 1px #19c1df;
+
+/* Typography basics */
+html {
+  font-family: 'Graphik', Helvetica, Sans-serif;
+  text-rendering: optimizeLegibility;
+	font-variant-ligatures: common-ligatures;
+	font-kerning: normal;
+	letter-spacing: 0.005em;
+}
+/* p {font-family: 'Tiempos', 'Times New Roman', Serif;} */
+/* table {font-family: 'Graphik', Helvetica, Sans-serif;} */
+
+
+
+
+
+
+/* Layout, centering, etc.
+------------------------------------------------------------------ */
+.content {
 }
 
-tbody tr:nth-of-type(5) {
-  border-bottom: dashed 1px #19c1df;
+.content-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-tbody tr:nth-of-type(18) {
-  border-top: solid 1px #19c1df;
-}
-
-td{
-  padding-left: 10px;
-}
-th{
-  padding: 15px;
-}
-
-._rank{
-  font-weight: bold;
-}
-
-th{
-  border-bottom: 1px solid #888;
-}
-table, th, td{
-  border-collapse: collapse;
-}
-margin{
-  padding: 50px;
-}
-.content-block{
+.content-block.text-block {
+  max-width: 750px;
   padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-th{
-  cursor:pointer;
+.the-table {
+  width: 1100px;
+}
+.the-table table {width: 100%;}
+
+
+
+
+
+/* Elements
+------------------------------------------------------------------ */
+
+p {
+  font-size: 24px;
+  line-height: 1.5em;
+  color: #fff;
 }
 
-th:hover{
-  background-color: #19c1df;
+.text-block a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #FF611E;
+}
+.text-block a:hover {
+  color: #FF611E;
+}
+.text-block a:active {
+  color: #000;
+  background-color: #FF611E;
+}
+
+
+
+
+
+
+/* The page heading
+------------------------------------------------------------------ */
+.heading {
+  padding: 70px 0 100px 0;
+  margin: 0 100px;
+  border-bottom: 30px solid white;
+}
+
+.heading h1 {
+  font-size: 160px;
+  line-height: 0.82em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  padding-left: 0px;
+  text-shadow: none;
+  color: #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+
+
+/* The table
+------------------------------------------------------------------ */
+
+table {
+  font-size: 32px;
+  line-height: 1.2em;
+}
+
+tbody tr:hover {
+  background-color: #FF611E;
   color: white;
 }
 
-tbody tr:hover{
-  background-color: #19c1df;
-  color: white;
+table, th, td {border-collapse: collapse;}
+
+/* Table header */
+th {
+  cursor: pointer;
+  text-align: right;
+  color: #000;
 }
+th:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Table cell spacing, general */
+td, th {padding: 12px 24px 15px 24px;}
+
+/* Targeted table item styles */
+th.club,
+td.club {
+  text-align: left;
+  /* margin-left: 0; */
+  /* padding-left: 0; */
+}
+
+td.number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+td.currency {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The divider lines */
+tbody tr:nth-of-type(4) {border-bottom: solid 1px #000;}
+tbody tr:nth-of-type(5) {border-bottom: dashed 1px #000;}
+tbody tr:nth-of-type(18) {border-top: solid 1px #000;}
+/* th {border-bottom: 3px solid #000;} */
+
+/* Table row background color */
+.the-table {background-color: #f8f8f8;}
+thead {
+  background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+}
+tr:nth-of-type(even) {background-color: #f0f0f0;}
+
+._rank {font-weight: bold;}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: rgba(0,0,0,0.5);
+  margin: 0;
+  padding: 14px 0 15px 17px;
+  background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+}
+
+.club-wrapper {
+  position: relative;
+}
+
+.club-badge-wrapper {
+  position: absolute;
+  top: 50%;
+  height: 40px;
+  margin-top: -17px;
+}
+
+.club-badge {
+  /* background-color: red; */
+  height: 40px;
+  width: 40px;
+}
+
+.club-name {margin-left: 52px;}
+.club-name-medium {display: none;}
+.club-name-short {display: none;}
+.real-position {display: none;}
+
+
+@media only screen and (max-width: 1120px) {
+  .content-block.text-block {
+    max-width: 660px;
+    padding: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .the-table {width: 100%;}
+  .heading {
+    padding: 60px 0 90px 0;
+    margin: 0 70px;
+    border-bottom: 23px solid white;
+  }
+  .heading h1 {font-size: 120px;}
+  table {font-size: 26px;}
+  td, th {padding: 9px 18px 13px 18px;}
+  h3 {font-size: 15px;}
+  p {font-size: 21px;}
+  .club-badge-wrapper {
+    height: 33px; 
+    margin-top: -15px;
+  }
+  .club-badge {
+    height: 33px; 
+    width: 33px;
+  }
+  .club-name {margin-left: 46px;}
+}
+
+
+@media only screen and (max-width: 900px) {
+  .content-block.text-block {
+    max-width: 790px;
+    padding: 34px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  .heading {
+    margin: 0 34px;
+    border-bottom: 21px solid white;
+  }
+  .heading h1 {font-size: 100px;}
+  h3 {padding: 12px 0 12px 34px;}
+  table {font-size: 22px;}
+  td, th {padding: 7px 34px 9px 34px;}
+  .club-badge-wrapper {
+    height: 26px; 
+    margin-top: -12px;
+  }
+  .club-badge {
+    height: 26px; 
+    width: 26px;
+  }
+  .club-name {display: none;}
+  .club-name-short {display: none;}
+  .club-name-medium {
+    margin-left: 37px;
+    display: block;
+  }
+  th.position, 
+  td.position {display: none;}
+}
+
+
+@media only screen and (max-width: 790px) {
+  .club-name-medium {display: none;}
+  .club-name-short {
+    margin-left: 37px;
+    display: block;
+  }
+}
+
+
+@media only screen and (max-width: 660px) {
+  .content-block.text-block {padding: 24px;}
+  .heading {
+    padding: 50px 0 70px 0;
+    margin: 0 24px;
+    border-bottom: 16px solid white;
+  }
+  .heading h1 {font-size: 70px;}
+  h3 {
+    padding: 10px 0 10px 24px;
+    font-size: 14px;
+  }
+  p {font-size: 20px;}
+  table {font-size: 20px;}
+  td, th {padding: 7px 24px 9px 24px;}
+}
+
+
+@media only screen and (max-width: 450px) {
+  .content-block.text-block {padding: 20px;}
+  .heading {
+    padding: 46px 0 66px 0;
+    margin: 0 20px;
+    border-bottom: 14px solid white;
+  }
+  .heading h1 {font-size: 66px;}
+  h3 {
+    padding: 8px 0 8px 20px;
+    font-size: 12px;
+  }
+  p {font-size: 18px;}
+  table {font-size: 18px;}
+  td, th {padding: 7px 20px 9px 20px;}
+}
+
+
+
+/* The footer
+------------------------------------------------------------------ */
+footer {
+  margin-top: auto;
+  /* height: 100%; */
+  /* width: 100%; */
+  background-image: url("https:/tools.aftertheflood.com/assets/images/atf-logo-clipped-white-translucent.png");
+  background-size: contain;
+  /* background-size: 100%; */
+  /* background-color: #4d3500; */
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: center bottom;
+  padding: 0 26px 0 18px;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 660px) {footer {padding: 0 40px 0 27px;}}
+footer p {
+  margin-bottom: 0;
+  padding: 12px 0 70px 2px;
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+footer p a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.7);
+}
+footer p a:hover {color: rgba(255,255,255,1);}
+@media only screen and (min-width: 660px) {footer p {padding: 22px 0 120px 3px;}}
+@media only screen and (min-width: 770px) {footer p {padding: 22px 0 120px 3px;}}
+@media only screen and (min-width: 900px) {footer p {padding: 22px 0 150px 3px;}}

@@ -5,16 +5,27 @@
   <meta name="Description" content="{{ 'intro' | md | safe }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/fonts.css">
-  <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css">
-  <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css">
+  {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css"> #}
+  {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css"> #}
   <link rel="stylesheet" type="text/css" href="/assets/style.css">
   <script src="/assets/index.js"></script>
 </head>
 
 <body>
-{% block content %}
 
-{% endblock %}
+<div class="heading">
+  {# <h1 class="left">Level</h1>
+  <h1 class="center">Wage</h1>
+  <h1 class="right">League</h1> #}
+  <h1>Level Wage <br />League</h1>
+</div>
+
+<div class="content">
+  {% block content %}
+
+  {% endblock %}
+</div>
+
 <footer>
   <p>
     <a href="https://www.aftertheflood.com/">After the flood</a>

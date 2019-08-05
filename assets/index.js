@@ -5,7 +5,10 @@ const tableToData = (tableBody)=>{
       const rowData = [];
       row.querySelectorAll('td')
         .forEach(cell=>{
-          rowData.push(cell.innerText);
+          rowData.push({
+            value: cell.innerText,
+            html: cell.innerHTML
+          });
         })
       tableData.push(rowData);
     });
@@ -18,7 +21,7 @@ const dataToTable = (tableBody, tableData)=>{
       const rowData = tableData[i];
       row.querySelectorAll('td')
         .forEach((cell, j)=>{
-          cell.innerText = rowData[j];
+          cell.innerHTML = rowData[j].html;
         })
       tableData.push(rowData);
     });
@@ -26,15 +29,20 @@ const dataToTable = (tableBody, tableData)=>{
 
 const sortTable = (columnNumber, method, direction) => {
   const tableData = tableToData(document.querySelector('table tbody'));
+  // mark all cells unsorted
+  document.querySelectorAll('td, th')
+    .forEach((el)=>{
+      el.classList.remove( 'sorted-on' );
+    });
 
   // sort the data
   if(method == 'numeric'){
     tableData.sort((a, b)=>{
-      return direction * (Number(a[columnNumber]) - Number(b[columnNumber]))
+      return direction * (Number(a[columnNumber].value) - Number(b[columnNumber].value));
     });
   }else{
     tableData.sort((a, b)=>{
-      if(b[columnNumber].toLowerCase() > a[columnNumber].toLowerCase()){
+      if(b[columnNumber].value.toLowerCase() > a[columnNumber].value.toLowerCase()){
         return -1 * direction;
       }
       return 1 * direction;
@@ -42,6 +50,17 @@ const sortTable = (columnNumber, method, direction) => {
   }
   // put the data back into the table
   dataToTable(document.querySelector('table tbody'), tableData);
+  //mark the sorted column
+  document.querySelectorAll('tr')
+    .forEach((el)=>{
+      el.querySelectorAll('td, th')
+        .forEach((el, i)=>{
+          if(i==columnNumber){
+            el.classList.add( 'sorted-on' );
+          }
+        })
+    })
+
 }
 
 

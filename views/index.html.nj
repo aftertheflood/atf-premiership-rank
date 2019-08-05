@@ -1,19 +1,43 @@
 {% extends "page.html.nj" %}
 
 {% block content %}
-<div class="content-block intro">{{ 'intro' | md | safe }}</div>
-<div class="content-block">
-  <h3>Week {{ gameWeek }}, {{ season }} season</h3>
-  {{ data.results | table({
-    headings: 
-      ['','','Wages (£m)','LWL Rank'],
-    columns: 
-      ['position','club','wagebill','_rank'],
-    columnClasses: 
-      ['number','','number millions','number'],
-    sort: '_rank',
-    rowClass: 'code'
-  }) | safe }}
+
+<div class="content">
+  <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
+  <div class="content-block the-table">
+    <h3>Week {{ gameWeek }}, {{ season }} season</h3>
+    <table>
+      <thead>
+        <tr>
+          <th class="position number"></th>
+          <th class="club">Club</th>
+          <th class="number">Wages (£m)</th>
+          <th class="number">LWL Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {% for row in data.results | sort(false, false, '_rank')%}
+        <tr>
+          <td class="position number">{{ row.position }}</td>
+          <td class="club text">
+            <div class="club-wrapper">
+              <div class="club-badge-wrapper">
+                <img src="/assets/badges/{{row.code}}.png" class="club-badge">
+              </div>
+              <span class="club-name">{{ row.club }}</span>
+              <span class="club-name-medium">{{ row.club }} ({{ row.position }})</span>
+              <span class="club-name-short">{{ row.code }} ({{ row.position }})</span>
+            </div>
+          </td>
+          <td class="wagebill number millions">{{ row.wagebill/1000000 }}</td>
+          <td class="_rank number sorted-on">{{ row._rank }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block text-block">{{ 'how' | md | safe }}</div>
 </div>
-<div class="content-block intro">{{ 'how' | md | safe }}</div>
+
 {% endblock %}
