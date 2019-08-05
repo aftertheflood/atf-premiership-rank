@@ -147,19 +147,25 @@ th.number{
   background-position: 4%;
 }
 
-th.sorted-asc{
-  background-image: url('/assets/icon/up-triangle.svg');
+.sort-icon{
+  fill: none;
+  width: 25px;
+  height: 25px;
 }
 
-th.sorted-asc:hover{
-  background-image: url('/assets/icon/up-triangle-hover.svg');
+th.sorted-asc .sort-icon .asc{
+  fill: #000;
+}
+th.sorted-asc:hover .sort-icon .asc{
+  fill: #FFF;
 }
 
-th.sorted-desc{
-  background-image: url('/assets/icon/down-triangle.svg');
+
+th.sorted-desc .sort-icon .desc{
+  fill: #000;
 }
-th.sorted-desc:hover{
-  background-image: url('/assets/icon/down-triangle-hover.svg');
+th.sorted-desc:hover .sort-icon .desc{
+  fill: #FFF;
 }
 
 /* Table cell spacing, general */
