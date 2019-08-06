@@ -9,7 +9,11 @@
 /* Overrides */
 body {
   margin: 0px;
-  background: linear-gradient(188deg, rgba(0,217,236,1) 0%, rgba(0,82,199,1) 10%, rgba(0,27,185,1) 40%, rgba(78,0,163,1) 75%, rgba(32,0,40,1) 100%);
+  background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 16%, rgba(54,0,112,1) 60%, rgba(24,0,31,1) 100%);
+  background-position: center top;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: 135%;
 }
 
 
@@ -26,12 +30,9 @@ html {
 
 
 
-
-
-
 /* Layout, centering, etc.
 ------------------------------------------------------------------ */
-hr{
+hr {
   border: 0px;
   border-bottom: 1px dashed white;
   width:50%;
@@ -100,7 +101,7 @@ p {
   font-weight: 800;
   letter-spacing: -0.035em;
   padding-left: 0px;
-  text-shadow: none;
+  /* text-shadow: 0 0 50px #FF611E; */
   color: #fff;
   padding-top: 0;
   padding-bottom: 0;
@@ -109,6 +110,7 @@ p {
   width: 100%;
   text-align: center;
   -webkit-font-smoothing: antialiased;
+  transition: text-shadow 2s ease;
 }
 
 
@@ -246,6 +248,7 @@ h3 {
 
 
 @media only screen and (max-width: 1120px) {
+  body {background-size: 150%;}
   .content-block.text-block {
     max-width: 660px;
     padding: 24px;
@@ -276,6 +279,7 @@ h3 {
 
 
 @media only screen and (max-width: 900px) {
+  body {background-size: 160%;}
   .content-block.text-block {
     max-width: 790px;
     padding: 34px;
@@ -317,6 +321,10 @@ h3 {
 
 
 @media only screen and (max-width: 790px) {
+  body {
+    background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 14%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
+    background-size: 180%;
+  }
   .club-name-medium {display: none;}
   .club-name-short {
     margin-left: 37px;
@@ -326,6 +334,10 @@ h3 {
 
 
 @media only screen and (max-width: 660px) {
+  body {
+    background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 3%, rgba(0,44,162,1) 12%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
+    background-size: 200%;
+  }
   .content-block.text-block {padding: 24px;}
   .heading {
     padding: 50px 0 70px 0;
