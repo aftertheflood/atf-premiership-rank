@@ -25,7 +25,7 @@
           <td class="club text" data-sortvalue="{{ row.position }}" >
             <div class="club-wrapper">
               <div class="club-badge-wrapper">
-                <img src="/assets/badges/{{row.code}}.png" class="club-badge">
+              <img height="100%" src="/assets/badges/{{row.code}}-200.png" role="presentation">
               </div>
               <span class="club-name">{{ row.club }}&nbsp;({{ row.position }})</span>
               <span class="club-name-medium">{{ row.club }}&nbsp;({{ row.position }})</span>
