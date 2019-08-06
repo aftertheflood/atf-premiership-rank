@@ -375,6 +375,8 @@ h3 {
     height: 11px;
     padding-left: 10px;
     display: block;
+    padding-block-start: 0px;
+    padding-inline-start: 0px;
     width: 100%;
   }
 }
