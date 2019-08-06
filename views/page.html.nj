@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Level Wages League - After the flood.</title>
-  <meta name="Description" content="{{ 'intro' | md | safe }}">
+  <meta name="Description" content="After the flood's Level Wage League looks at the English Premier League through the lens of the teams wage bills.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/fonts.css">
   {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css"> #}
