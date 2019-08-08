@@ -30,6 +30,7 @@ html {
 
 
 
+
 /* Layout, centering, etc.
 ------------------------------------------------------------------ */
 hr {
@@ -91,29 +92,32 @@ p {
 ------------------------------------------------------------------ */
 .heading {
   padding: 0;
-  margin: -30px 0 0 0;
+  margin: 7px 0 0 16px;
 }
 
 .heading h1 {
-  font-size: 120px;
+  font-size: 105px;
   line-height: 0.82em;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  padding: 4px 0 10px 0;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  margin: 0;
+  padding: 0;
   color: #fff;
-  /* color: transparent;
-  background-image: linear-gradient(90deg, #fff 20%, #FF611E 80%);
-  background-clip: text;
-  -webkit-background-clip: text; */
-  margin-top: 0;
-  margin-bottom: 0;
-  width: 100%;
-  text-align: center;
+  text-align: left;
   -webkit-font-smoothing: antialiased;
-  text-transform: uppercase;
 }
 
+.logo-box {
+  margin: 10px 30px 0 30px;
+  clip-path: inset(20px -30px -3px -30px);
+}
 
+svg#logo {
+  width: 100%;
+  height: 25vh;
+  overflow: visible;
+  stroke-width: 10px;
+}
 
 
 
@@ -236,7 +240,6 @@ h3 {
 }
 
 .club-badge {
-  /* background-color: red; */
   height: 40px;
   width: 40px;
 }
@@ -257,11 +260,16 @@ h3 {
   }
   .the-table {width: 100%;}
   .heading {
-    padding: 60px 0 90px 0;
-    margin: 0 70px;
-    border-bottom: 23px solid white;
+    /* margin: 7px 70px; */
   }
-  .heading h1 {font-size: 120px;}
+  .heading h1 {font-size: 90px;}
+  .logo-box {
+    margin: 9px 28px 0 28px;
+  }
+  svg#logo {
+    height: 23vh;
+    stroke-width: 9px;
+  }
   table {font-size: 26px;}
   td, th {padding: 9px 18px 13px 18px;}
   h3 {font-size: 15px;}
@@ -286,11 +294,14 @@ h3 {
     margin-top: 12px;
     margin-bottom: 12px;
   }
-  .heading {
-    margin: 0 34px;
-    border-bottom: 21px solid white;
+  .heading {margin: 7px 160px 0 31px;}
+  .heading h1 {font-size: 79px;}
+  .logo-box {
+    margin: 27px 42px 0 42px;
   }
-  .heading h1 {font-size: 100px;}
+  svg#logo {
+    stroke-width: 7px;
+  }
   h3 {padding: 12px 0 12px 34px;}
   table {font-size: 22px;}
   td {padding: 7px 34px 9px 34px;}
@@ -323,7 +334,7 @@ h3 {
 @media only screen and (max-width: 790px) {
   body {
     background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 14%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
-    background-size: 180%;
+    background-size: 220%;
   }
   .club-name-medium {display: none;}
   .club-name-short {
@@ -340,11 +351,15 @@ h3 {
   }
   .content-block.text-block {padding: 24px;}
   .heading {
-    padding: 50px 0 70px 0;
-    margin: 0 24px;
-    border-bottom: 16px solid white;
+    margin: 7px 100px 0 20px;
   }
   .heading h1 {font-size: 70px;}
+  .logo-box {
+    margin: 12px 29px 0 29px;
+  }
+  svg#logo {
+    stroke-width: 6px;
+  }
   h3 {
     padding: 10px 0 10px 24px;
     font-size: 14px;
@@ -370,11 +385,20 @@ h3 {
 @media only screen and (max-width: 450px) {
   .content-block.text-block {padding: 20px;}
   .heading {
-    padding: 46px 0 66px 0;
-    margin: 0 20px;
-    border-bottom: 14px solid white;
+    margin: 1px 18px 0 18px;
   }
-  .heading h1 {font-size: 66px;}
+  .heading h1 {
+    font-size: 52px;
+    font-weight: 800;
+  }
+  .logo-box {
+    margin: 5px 22px 0 22px;
+    clip-path: inset(12px -22px 2px -22px);
+  }
+  svg#logo {
+    height: 16vh;
+    stroke-width: 2px;
+  }
   h3 {
     padding: 8px 0 8px 20px;
     font-size: 12px;
@@ -399,19 +423,18 @@ h3 {
 ------------------------------------------------------------------ */
 footer {
   margin-top: auto;
-  /* height: 100%; */
-  /* width: 100%; */
   background-image: url("https:/tools.aftertheflood.com/assets/images/atf-logo-clipped-white-translucent.png");
   background-size: contain;
-  /* background-size: 100%; */
-  /* background-color: #4d3500; */
   background-repeat: no-repeat;
   background-origin: content-box;
   background-position: center bottom;
   padding: 0 26px 0 18px;
   box-sizing: border-box;
 }
-@media only screen and (min-width: 660px) {footer {padding: 0 40px 0 27px;}}
+@media only screen and (min-width: 660px) {
+  footer {padding: 0 40px 0 27px;}
+}
+
 footer p {
   margin-bottom: 0;
   padding: 12px 0 70px 2px;
