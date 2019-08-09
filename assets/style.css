@@ -148,7 +148,7 @@ th {
   color: #000;
   background-position: 96%;
   background-repeat: no-repeat;
-  background-size: 25px 25px;
+  /* background-size: 25px 25px; no idea what this does or why it was here */ 
 }
 th:hover {
   background-color: #000;
@@ -161,10 +161,12 @@ th.number{
 
 .sort-icon{
   fill: none;
-  width: 16px;
-  height: 16px;
-  padding-inline-start: 20px;
+  width: 18px;
+  height: 18px;
 }
+
+th.club .sort-icon   {padding-inline-start: 6px;}
+th.number .sort-icon {padding-inline-end:   6px;}
 
 th.sorted-asc .sort-icon .asc{
   fill: #000;
@@ -182,20 +184,20 @@ th.sorted-desc:hover .sort-icon .desc{
 }
 
 /* Table cell spacing, general */
-td, th {padding: 12px 24px 15px 24px;}
+td, th {padding: 12px 30px 15px 30px;}
 
 /* Targeted table item styles */
 th.club,
 td.club {
   text-align: left;
-  /* margin-left: 0; */
-  /* padding-left: 0; */
 }
+
+th.club {padding-left: 30px;}
 
 td.number {
   text-align: right;
   font-variant-numeric: tabular-nums;
-  padding-right: 50px;
+  /* padding-right: 50px; */
 }
 td.currency {
   text-align: right;
@@ -323,6 +325,7 @@ h3 {
   }
   th.position, 
   td.position {display: none;}
+
   .sort-icon{
     width: 13px;
     height: 13px;
