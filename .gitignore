@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 assets/.DS_Store
 assets/badges/.DS_Store
+.DS_Store
+assets/.DS_Store
