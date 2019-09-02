@@ -33,8 +33,8 @@
               <div class="club-badge-wrapper">
               <img height="100%" src="/assets/badges/{{row.code}}-200.png" role="presentation">
               </div>
-              <span class="club-name">{{ row.club }}&nbsp;({{ row.position }})</span>
-              <span class="club-name-medium">{{ row.club }}&nbsp;({{ row.position }})</span>
+              <span class="club-name">{{ row.code | shortName(data.teams) }}&nbsp;({{ row.position }})</span>
+              <span class="club-name-medium">{{ row.code | shortName(data.teams) }}&nbsp;({{ row.position }})</span>
               <span class="club-name-short">{{ row.code }}&nbsp;({{ row.position }})</span>
             </div>
           </td>

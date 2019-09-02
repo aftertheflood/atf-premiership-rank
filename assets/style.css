@@ -9,7 +9,7 @@
 /* Overrides */
 body {
   margin: 0px;
-  background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 16%, rgba(54,0,112,1) 60%, rgba(24,0,31,1) 100%);
+  background-image: url(images/elland-road-4.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 16%, rgba(54,0,112,1) 60%, rgba(24,0,31,1) 100%);
   background-position: center top;
   background-blend-mode: multiply;
   background-repeat: no-repeat;
@@ -336,7 +336,7 @@ h3 {
 
 @media only screen and (max-width: 790px) {
   body {
-    background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 14%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
+    background-image: url(images/elland-road-4.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 14%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
     background-size: 220%;
   }
   .club-name-medium {display: none;}
@@ -349,7 +349,7 @@ h3 {
 
 @media only screen and (max-width: 660px) {
   body {
-    background-image: url(images/elland-road-2.png), linear-gradient(188deg, rgba(0,238,228,1) 3%, rgba(0,44,162,1) 12%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
+    background-image: url(images/elland-road-4.png), linear-gradient(188deg, rgba(0,238,228,1) 3%, rgba(0,44,162,1) 12%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
     background-size: 200%;
   }
   .content-block.text-block {padding: 24px;}
