@@ -27,6 +27,13 @@ function formatter(classList, s) {
 }
 
 function addFilters(env){
+  env.addFilter('shortName', (n, lookup) => {
+    if(!lookup[n]){ return n; }
+    if(lookup[n][0]['shortname']){
+      return `${lookup[n][0]['shortname']}`
+    }
+    return `${lookup[n][0]['name']}`
+  });
   env.addFilter('dataSet', obj => Object.entries(obj).map(([k,v])=>`data-${k}="${v}"`).join(' '));
   env.addFilter('logo', imageURL);
   env.addFilter('signed', s => String(`${s >= 0 ? '+' : ''}${s}`));
