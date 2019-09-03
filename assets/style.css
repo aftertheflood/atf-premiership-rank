@@ -231,13 +231,8 @@ h3 {
   margin: 0;
   padding: 14px 0 15px 17px;
   text-align: left;
-  background-color: transparent;
+  /* background-color: transparent; */
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
-}
-
-th.week {
-  text-align: left;
-  font-weight: 400;
 }
 
 .club-wrapper {
