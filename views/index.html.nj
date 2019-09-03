@@ -2,32 +2,40 @@
 
 {% block content %}
 
-<div class="content">
-  <div class="content-block text-block">{{ 'intro' | md | safe }}</div>
+  <div class="content-block text-block">
+  {{ 'intro' | md | safe }}
+  </div>
   <div class="content-block the-table">
     <h3>Week {{ gameWeek }}, {{ season }} season</h3>
     <table>
       <thead>
         <tr>
-          <th class="position number"></th>
-          <th class="club">Club</th>
-          <th class="number">Wages (£m)</th>
-          <th class="number">LWL Rank</th>
+          <th class="club">
+            Club (league&nbsp;pos.)
+            <svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="desc" d="M37.5 74L1 1h73L37.5 74z"/><path class="asc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
+          </th>
+          <th class="number">
+           <svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="asc" d="M37.5 74L1 1h73L37.5 74z"/><path class="desc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
+            Wages (£m)
+          </th>
+          <th class="number">
+            <svg class="sort-icon" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 75 75"><path class="desc" d="M37.5 74L1 1h73L37.5 74z"/><path class="asc" d="M37.5 1L74 74H1L37.5 1z"/></svg>
+            LWL Rank
+          </th>
         </tr>
       </thead>
       <tbody>
 
       {% for row in data.results | sort(false, false, '_rank')%}
         <tr>
-          <td class="position number">{{ row.position }}</td>
-          <td class="club text">
+          <td class="club text" data-sortvalue="{{ row.position }}" >
             <div class="club-wrapper">
               <div class="club-badge-wrapper">
-                <img src="/assets/badges/{{row.code}}.png" class="club-badge">
+              <img height="100%" src="/assets/badges/{{row.code}}-200.png" role="presentation">
               </div>
-              <span class="club-name">{{ row.club }}</span>
-              <span class="club-name-medium">{{ row.club }} ({{ row.position }})</span>
-              <span class="club-name-short">{{ row.code }} ({{ row.position }})</span>
+              <span class="club-name">{{ row.code | shortName(data.teams) }}&nbsp;({{ row.position }})</span>
+              <span class="club-name-medium">{{ row.code | shortName(data.teams) }}&nbsp;({{ row.position }})</span>
+              <span class="club-name-short">{{ row.code }}&nbsp;({{ row.position }})</span>
             </div>
           </td>
           <td class="wagebill number millions">{{ row.wagebill/1000000 }}</td>
@@ -38,6 +46,5 @@
     </table>
   </div>
   <div class="content-block text-block">{{ 'how' | md | safe }}</div>
-</div>
 
 {% endblock %}
