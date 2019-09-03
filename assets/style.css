@@ -148,6 +148,7 @@ th {
   color: #000;
   background-position: 96%;
   background-repeat: no-repeat;
+  background-color: transparent;
   /* background-size: 25px 25px; no idea what this does or why it was here */ 
 }
 th:hover {
@@ -214,7 +215,9 @@ tbody tr:nth-of-type(18) {border-top: solid 1px #000;}
 .the-table {background-color: #f8f8f8;}
 thead {
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+  background-attachment: fixed;
 }
+thead tr, thead th {background: transparent;}
 tr:nth-of-type(even) {background-color: #f0f0f0;}
 
 ._rank {font-weight: bold;}
@@ -227,7 +230,14 @@ h3 {
   color: rgba(0,0,0,0.5);
   margin: 0;
   padding: 14px 0 15px 17px;
+  text-align: left;
+  background-color: transparent;
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+}
+
+th.week {
+  text-align: left;
+  font-weight: 400;
 }
 
 .club-wrapper {
