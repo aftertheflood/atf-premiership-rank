@@ -35,8 +35,10 @@ html {
 ------------------------------------------------------------------ */
 hr {
   border: 0px;
-  border-bottom: 1px dashed white;
-  width:50%;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  width:100%;
+  margin-top: 36px;
+  margin-bottom: 31px;
 }
 
 .content-block {
@@ -233,6 +235,7 @@ h3 {
   text-align: left;
   /* background-color: transparent; */
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+  background-attachment: fixed;
 }
 
 .club-wrapper {
@@ -285,6 +288,10 @@ h3 {
     height: 33px; 
     margin-top: -15px;
   }
+  hr {
+    margin-top: 32px;
+    margin-bottom: 27px;
+  }
   .club-badge {
     height: 33px; 
     width: 33px;
@@ -335,6 +342,11 @@ h3 {
     width: 13px;
     height: 13px;
     padding-left: 10px;
+  }
+  hr {
+    margin-top: 30px;
+    margin-bottom: 26px;
+    width: 50%;
   }
 }
 
