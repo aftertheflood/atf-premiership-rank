@@ -9,7 +9,11 @@
 /* Overrides */
 body {
   margin: 0px;
-  background: linear-gradient(188deg, rgba(0,217,236,1) 0%, rgba(0,82,199,1) 10%, rgba(0,27,185,1) 40%, rgba(78,0,163,1) 75%, rgba(32,0,40,1) 100%);
+  background-image: url(images/elland-road-4.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 16%, rgba(54,0,112,1) 60%, rgba(24,0,31,1) 100%);
+  background-position: center top;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: 135%;
 }
 
 
@@ -27,11 +31,12 @@ html {
 
 
 
-
-
 /* Layout, centering, etc.
 ------------------------------------------------------------------ */
-.content {
+hr {
+  border: 0px;
+  border-bottom: 1px dashed white;
+  width:50%;
 }
 
 .content-block {
@@ -86,29 +91,33 @@ p {
 /* The page heading
 ------------------------------------------------------------------ */
 .heading {
-  padding: 70px 0 100px 0;
-  margin: 0 100px;
-  border-bottom: 30px solid white;
+  padding: 0;
+  margin: 7px 0 0 16px;
 }
 
 .heading h1 {
-  font-size: 160px;
+  font-size: 105px;
   line-height: 0.82em;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  padding-left: 0px;
-  text-shadow: none;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  margin: 0;
+  padding: 0;
   color: #fff;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  width: 100%;
-  text-align: center;
+  text-align: left;
   -webkit-font-smoothing: antialiased;
 }
 
+.logo-box {
+  margin: 10px 30px 0 30px;
+  clip-path: inset(20px -30px -3px -30px);
+}
 
+svg#logo {
+  width: 100%;
+  height: 25vh;
+  overflow: visible;
+  stroke-width: 10px;
+}
 
 
 
@@ -122,6 +131,9 @@ table {
   line-height: 1.2em;
 }
 
+tbody tr{
+  background-color:white;
+}
 tbody tr:hover {
   background-color: #FF611E;
   color: white;
@@ -134,26 +146,59 @@ th {
   cursor: pointer;
   text-align: right;
   color: #000;
+  background-position: 96%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  /* background-size: 25px 25px; no idea what this does or why it was here */ 
 }
 th:hover {
   background-color: #000;
   color: #fff;
 }
 
+th.number{
+  background-position: 4%;
+}
+
+.sort-icon{
+  fill: none;
+  width: 18px;
+  height: 18px;
+}
+
+th.club .sort-icon   {padding-inline-start: 6px;}
+th.number .sort-icon {padding-inline-end:   6px;}
+
+th.sorted-asc .sort-icon .asc{
+  fill: #000;
+}
+th.sorted-asc:hover .sort-icon .asc{
+  fill: #FFF;
+}
+
+
+th.sorted-desc .sort-icon .desc{
+  fill: #000;
+}
+th.sorted-desc:hover .sort-icon .desc{
+  fill: #FFF;
+}
+
 /* Table cell spacing, general */
-td, th {padding: 12px 24px 15px 24px;}
+td, th {padding: 12px 30px 15px 30px;}
 
 /* Targeted table item styles */
 th.club,
 td.club {
   text-align: left;
-  /* margin-left: 0; */
-  /* padding-left: 0; */
 }
+
+th.club {padding-left: 30px;}
 
 td.number {
   text-align: right;
   font-variant-numeric: tabular-nums;
+  /* padding-right: 50px; */
 }
 td.currency {
   text-align: right;
@@ -170,7 +215,9 @@ tbody tr:nth-of-type(18) {border-top: solid 1px #000;}
 .the-table {background-color: #f8f8f8;}
 thead {
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+  background-attachment: fixed;
 }
+thead tr, thead th {background: transparent;}
 tr:nth-of-type(even) {background-color: #f0f0f0;}
 
 ._rank {font-weight: bold;}
@@ -183,6 +230,8 @@ h3 {
   color: rgba(0,0,0,0.5);
   margin: 0;
   padding: 14px 0 15px 17px;
+  text-align: left;
+  /* background-color: transparent; */
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
 }
 
@@ -198,7 +247,6 @@ h3 {
 }
 
 .club-badge {
-  /* background-color: red; */
   height: 40px;
   width: 40px;
 }
@@ -210,6 +258,7 @@ h3 {
 
 
 @media only screen and (max-width: 1120px) {
+  body {background-size: 150%;}
   .content-block.text-block {
     max-width: 660px;
     padding: 24px;
@@ -218,11 +267,16 @@ h3 {
   }
   .the-table {width: 100%;}
   .heading {
-    padding: 60px 0 90px 0;
-    margin: 0 70px;
-    border-bottom: 23px solid white;
+    /* margin: 7px 70px; */
   }
-  .heading h1 {font-size: 120px;}
+  .heading h1 {font-size: 90px;}
+  .logo-box {
+    margin: 9px 28px 0 28px;
+  }
+  svg#logo {
+    height: 23vh;
+    stroke-width: 9px;
+  }
   table {font-size: 26px;}
   td, th {padding: 9px 18px 13px 18px;}
   h3 {font-size: 15px;}
@@ -240,20 +294,26 @@ h3 {
 
 
 @media only screen and (max-width: 900px) {
+  body {background-size: 160%;}
   .content-block.text-block {
     max-width: 790px;
     padding: 34px;
     margin-top: 12px;
     margin-bottom: 12px;
   }
-  .heading {
-    margin: 0 34px;
-    border-bottom: 21px solid white;
+  .heading {margin: 7px 160px 0 31px;}
+  .heading h1 {font-size: 79px;}
+  .logo-box {
+    margin: 27px 42px 0 42px;
   }
-  .heading h1 {font-size: 100px;}
+  svg#logo {
+    stroke-width: 7px;
+  }
   h3 {padding: 12px 0 12px 34px;}
   table {font-size: 22px;}
-  td, th {padding: 7px 34px 9px 34px;}
+  td {padding: 7px 34px 9px 34px;}
+  td.number {padding-right: 55px;}
+  th {padding: 7px 34px 9px 18px;}
   .club-badge-wrapper {
     height: 26px; 
     margin-top: -12px;
@@ -270,10 +330,20 @@ h3 {
   }
   th.position, 
   td.position {display: none;}
+
+  .sort-icon{
+    width: 13px;
+    height: 13px;
+    padding-left: 10px;
+  }
 }
 
 
 @media only screen and (max-width: 790px) {
+  body {
+    background-image: url(images/elland-road-4.png), linear-gradient(188deg, rgba(0,238,228,1) 2%, rgba(0,44,162,1) 14%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
+    background-size: 220%;
+  }
   .club-name-medium {display: none;}
   .club-name-short {
     margin-left: 37px;
@@ -283,13 +353,21 @@ h3 {
 
 
 @media only screen and (max-width: 660px) {
+  body {
+    background-image: url(images/elland-road-4.png), linear-gradient(188deg, rgba(0,238,228,1) 3%, rgba(0,44,162,1) 12%, rgba(54,0,112,1) 58%, rgba(24,0,31,1) 100%);
+    background-size: 200%;
+  }
   .content-block.text-block {padding: 24px;}
   .heading {
-    padding: 50px 0 70px 0;
-    margin: 0 24px;
-    border-bottom: 16px solid white;
+    margin: 7px 100px 0 20px;
   }
   .heading h1 {font-size: 70px;}
+  .logo-box {
+    margin: 12px 29px 0 29px;
+  }
+  svg#logo {
+    stroke-width: 6px;
+  }
   h3 {
     padding: 10px 0 10px 24px;
     font-size: 14px;
@@ -297,17 +375,38 @@ h3 {
   p {font-size: 20px;}
   table {font-size: 20px;}
   td, th {padding: 7px 24px 9px 24px;}
+  th{
+    text-align: center;
+  }
+  th.club{
+    text-align: center;
+    max-width: 250px;
+  }
+  .sort-icon{
+    width: 11px;
+    height: 11px;
+    padding-left: 10px;
+  }
 }
 
 
 @media only screen and (max-width: 450px) {
   .content-block.text-block {padding: 20px;}
   .heading {
-    padding: 46px 0 66px 0;
-    margin: 0 20px;
-    border-bottom: 14px solid white;
+    margin: 1px 18px 0 18px;
   }
-  .heading h1 {font-size: 66px;}
+  .heading h1 {
+    font-size: 52px;
+    font-weight: 800;
+  }
+  .logo-box {
+    margin: 5px 22px 0 22px;
+    clip-path: inset(12px -22px 2px -22px);
+  }
+  svg#logo {
+    height: 16vh;
+    stroke-width: 2px;
+  }
   h3 {
     padding: 8px 0 8px 20px;
     font-size: 12px;
@@ -315,6 +414,15 @@ h3 {
   p {font-size: 18px;}
   table {font-size: 18px;}
   td, th {padding: 7px 20px 9px 20px;}
+  .sort-icon{
+    width: 11px;
+    height: 11px;
+    padding-left: 10px;
+    display: block;
+    padding-block-start: 0px;
+    padding-inline-start: 0px;
+    width: 100%;
+  }
 }
 
 
@@ -323,19 +431,18 @@ h3 {
 ------------------------------------------------------------------ */
 footer {
   margin-top: auto;
-  /* height: 100%; */
-  /* width: 100%; */
   background-image: url("https:/tools.aftertheflood.com/assets/images/atf-logo-clipped-white-translucent.png");
   background-size: contain;
-  /* background-size: 100%; */
-  /* background-color: #4d3500; */
   background-repeat: no-repeat;
   background-origin: content-box;
   background-position: center bottom;
   padding: 0 26px 0 18px;
   box-sizing: border-box;
 }
-@media only screen and (min-width: 660px) {footer {padding: 0 40px 0 27px;}}
+@media only screen and (min-width: 660px) {
+  footer {padding: 0 40px 0 27px;}
+}
+
 footer p {
   margin-bottom: 0;
   padding: 12px 0 70px 2px;

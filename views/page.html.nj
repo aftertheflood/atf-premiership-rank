@@ -2,38 +2,39 @@
 <html>
 <head>
   <title>Level Wages League - After the flood.</title>
-  <meta name="Description" content="{{ 'intro' | md | safe }}">
+  <meta name="Description" content="After the flood's Level Wage League looks at the English Premier League through the lens of the teams wage bills.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/fonts.css">
   {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css"> #}
   {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css"> #}
   <link rel="stylesheet" type="text/css" href="/assets/style.css">
   <script src="/assets/index.js"></script>
+  <script src="/assets/d3.min.js"></script>
 </head>
 
 <body>
 
-<div class="heading">
-  {# <h1 class="left">Level</h1>
-  <h1 class="center">Wage</h1>
-  <h1 class="right">League</h1> #}
-  <h1>Level Wage <br />League</h1>
-</div>
+  <div class="logo-box">
+    <svg id="logo"></svg>
+  </div>
+  
+  <div class="heading"><h1>Level Wage League</h1></div>
 
-<div class="content">
-  {% block content %}
+  <div class="content">
+    {% block content %}
 
-  {% endblock %}
-</div>
+    {% endblock %}
+  </div>
 
-<footer>
-  <p>
-    <a href="https://www.aftertheflood.com/">After the flood</a>
-    <br>140–142 St John St, London, EC1V 4UB, UK
-    <br>info@aftertheflood.com
-    <br><a href="href=https://twitter.com/AftertheFloodco">@Afterthefloodco</a>
-    <br>Registered in England and Wales as After the flood Limited. 7792366
-  </p>
-</footer>
+  <footer>
+    <p>
+      <a href="https://www.aftertheflood.com/">After the flood</a>
+      <br>140–142 St John St, London, EC1V 4UB, UK
+      <br>info@aftertheflood.com
+      <br><a href="href=https://twitter.com/AftertheFloodco">@Afterthefloodco</a>
+      <br>Registered in England and Wales as After the flood Limited. 7792366
+    </p>
+  </footer>
+
 </body>
 </html>

@@ -6,7 +6,7 @@ const lineIntersection = require('./line-intersection');
 const scatterLayout = require('./scatter-layout');
 
 
-const seasonKey = 2018;
+const seasonKey = 2019;
 const docID = '1o7Qg6ElbqI1lo2rfoA_OQAro34NksZmrp_hXdSM9JIE';
 const dataSheet = `data%20${seasonKey}`;
 const teamDetails = 'dictionary/club%20details-by-code';
