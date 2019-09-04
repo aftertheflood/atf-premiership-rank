@@ -35,8 +35,10 @@ html {
 ------------------------------------------------------------------ */
 hr {
   border: 0px;
-  border-bottom: 1px dashed white;
-  width:50%;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  width:100%;
+  margin-top: 36px;
+  margin-bottom: 31px;
 }
 
 .content-block {
@@ -109,7 +111,7 @@ p {
 
 .logo-box {
   margin: 10px 30px 0 30px;
-  clip-path: inset(20px -30px -3px -30px);
+  clip-path: inset(20px -30px 0px -30px);
 }
 
 svg#logo {
@@ -131,9 +133,7 @@ table {
   line-height: 1.2em;
 }
 
-tbody tr{
-  background-color:white;
-}
+tbody tr {background-color:white;}
 tbody tr:hover {
   background-color: #FF611E;
   color: white;
@@ -149,6 +149,7 @@ th {
   background-position: 96%;
   background-repeat: no-repeat;
   background-color: transparent;
+  vertical-align: bottom;
   /* background-size: 25px 25px; no idea what this does or why it was here */ 
 }
 th:hover {
@@ -156,9 +157,7 @@ th:hover {
   color: #fff;
 }
 
-th.number{
-  background-position: 4%;
-}
+th.number{background-position: 4%;}
 
 .sort-icon{
   fill: none;
@@ -167,19 +166,11 @@ th.number{
 }
 
 th.club .sort-icon   {padding-inline-start: 6px;}
-th.number .sort-icon {padding-inline-end:   6px;}
+th.number .sort-icon {padding-inline-end: 6px;}
 
-th.sorted-asc .sort-icon .asc{
-  fill: #000;
-}
-th.sorted-asc:hover .sort-icon .asc{
-  fill: #FFF;
-}
-
-
-th.sorted-desc .sort-icon .desc{
-  fill: #000;
-}
+th.sorted-asc .sort-icon .asc{fill: #000;}
+th.sorted-asc:hover .sort-icon .asc{fill: #FFF;}
+th.sorted-desc .sort-icon .desc{fill: #000;}
 th.sorted-desc:hover .sort-icon .desc{
   fill: #FFF;
 }
@@ -189,9 +180,7 @@ td, th {padding: 12px 30px 15px 30px;}
 
 /* Targeted table item styles */
 th.club,
-td.club {
-  text-align: left;
-}
+td.club {text-align: left;}
 
 th.club {padding-left: 30px;}
 
@@ -233,11 +222,10 @@ h3 {
   text-align: left;
   /* background-color: transparent; */
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
+  background-attachment: fixed;
 }
 
-.club-wrapper {
-  position: relative;
-}
+.club-wrapper {position: relative;}
 
 .club-badge-wrapper {
   position: absolute;
@@ -256,6 +244,10 @@ h3 {
 .club-name-short {display: none;}
 .real-position {display: none;}
 
+.hidden-break {
+  display: none;
+}
+
 
 @media only screen and (max-width: 1120px) {
   body {background-size: 150%;}
@@ -266,13 +258,8 @@ h3 {
     margin-bottom: 24px;
   }
   .the-table {width: 100%;}
-  .heading {
-    /* margin: 7px 70px; */
-  }
   .heading h1 {font-size: 90px;}
-  .logo-box {
-    margin: 9px 28px 0 28px;
-  }
+  .logo-box {margin: 9px 28px 0 28px;}
   svg#logo {
     height: 23vh;
     stroke-width: 9px;
@@ -284,6 +271,10 @@ h3 {
   .club-badge-wrapper {
     height: 33px; 
     margin-top: -15px;
+  }
+  hr {
+    margin-top: 32px;
+    margin-bottom: 27px;
   }
   .club-badge {
     height: 33px; 
@@ -303,17 +294,14 @@ h3 {
   }
   .heading {margin: 7px 160px 0 31px;}
   .heading h1 {font-size: 79px;}
-  .logo-box {
-    margin: 27px 42px 0 42px;
-  }
-  svg#logo {
-    stroke-width: 7px;
-  }
+  .logo-box {margin: 27px 42px 0 42px;}
+  svg#logo {stroke-width: 7px;}
   h3 {padding: 12px 0 12px 34px;}
   table {font-size: 22px;}
   td {padding: 7px 34px 9px 34px;}
-  td.number {padding-right: 55px;}
+  td.number {padding-right: 34px;}
   th {padding: 7px 34px 9px 18px;}
+  th.club {padding-left: 34px;}
   .club-badge-wrapper {
     height: 26px; 
     margin-top: -12px;
@@ -336,6 +324,11 @@ h3 {
     height: 13px;
     padding-left: 10px;
   }
+  hr {
+    margin-top: 30px;
+    margin-bottom: 26px;
+    width: 50%;
+  }
 }
 
 
@@ -349,6 +342,7 @@ h3 {
     margin-left: 37px;
     display: block;
   }
+  th.club {padding-right: 12px;}
 }
 
 
@@ -358,16 +352,10 @@ h3 {
     background-size: 200%;
   }
   .content-block.text-block {padding: 24px;}
-  .heading {
-    margin: 7px 100px 0 20px;
-  }
+  .heading {margin: 7px 100px 0 20px;}
   .heading h1 {font-size: 70px;}
-  .logo-box {
-    margin: 12px 29px 0 29px;
-  }
-  svg#logo {
-    stroke-width: 6px;
-  }
+  .logo-box {margin: 12px 29px 0 29px;}
+  svg#logo {stroke-width: 6px;}
   h3 {
     padding: 10px 0 10px 24px;
     font-size: 14px;
@@ -375,26 +363,29 @@ h3 {
   p {font-size: 20px;}
   table {font-size: 20px;}
   td, th {padding: 7px 24px 9px 24px;}
-  th{
+  td.number {padding-right: 24px;}
+  th.club {padding-left: 24px;}
+  /* th{
     text-align: center;
   }
   th.club{
     text-align: center;
     max-width: 250px;
-  }
+  } */
   .sort-icon{
     width: 11px;
     height: 11px;
     padding-left: 10px;
   }
+  .club {width: 46%;}
+  .number {width: 27%;}
+  .hidden-break {display: inline;}
 }
 
 
 @media only screen and (max-width: 450px) {
   .content-block.text-block {padding: 20px;}
-  .heading {
-    margin: 1px 18px 0 18px;
-  }
+  .heading {margin: 1px 18px 0 18px;}
   .heading h1 {
     font-size: 52px;
     font-weight: 800;
@@ -414,15 +405,33 @@ h3 {
   p {font-size: 18px;}
   table {font-size: 18px;}
   td, th {padding: 7px 20px 9px 20px;}
-  .sort-icon{
-    width: 11px;
-    height: 11px;
+  th {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+  }
+  th.number, 
+  td.number {
     padding-left: 10px;
-    display: block;
+    padding-right: 20px;
+  }
+  th.club {
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+  .sort-icon{
+    width: 8px;
+    height: 8px;
+    padding-left: 2px;
     padding-block-start: 0px;
     padding-inline-start: 0px;
-    width: 100%;
   }
+  th.club .sort-icon {padding-inline-start: 2px;}
+  th.number .sort-icon {padding-inline-end: 2px;}
+
+  .club {width: 50%;}
+  .number {width: 25%;}
+  .hidden-break {display: inline;}
 }
 
 
