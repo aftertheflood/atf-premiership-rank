@@ -18,7 +18,7 @@
     <svg id="logo"></svg>
   </div>
   
-  <div class="heading"><h1>Level Wage League</h1></div>
+  <div class="heading"><h1>Level Wages League</h1></div>
 
   <div class="content">
     {% block content %}
