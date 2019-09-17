@@ -77,7 +77,7 @@ function rankTeams(req, res, next){
   const xScale = scaleLinear().range([1, 0]) // TODO flip
     .domain(xDomain);
 
-  const yScale = scaleLinear().range([0, 1]) 
+  const yScale = scaleLinear().range([1, 0]) 
     .domain(yDomain);
 
   const regressionLine = regressionLinear()
@@ -87,30 +87,25 @@ function rankTeams(req, res, next){
 
 //  console.log(regressionLine);
 
-  // create the vector
-  // either use a weigting to make a rank vector 
-  
+  /***  create the vector ***/
+
+  // either use a weigting to make a rank vector   
   const weighting = 0.5;
   const rankVector = {
     angle: (Math.PI/2) * weighting,
     origin: [0, 0],
     length: 1 //length doesn't really matter
   };
-
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
-  // const rankLineCoords = [  // regression version
+console.log('RANK LINE', rankLineCoords)
+// or make it from the regression line
+  
+  // const rankLineCoords = [
   //   [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
   //   [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
   // ];
-
-  // or make it from the regression line
-  /*
-  const rankLineCoords = [
-    [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
-    [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
-  ];
-  const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
-  */
+  // const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
+  
 
 
   let rankedData = req.data.results.map(row=>{
@@ -121,11 +116,13 @@ function rankTeams(req, res, next){
     }
     const teamNormalCoords = vector2coords(teamNormal.angle, teamNormal.length, teamNormal.origin);
     const intersection =  lineIntersection(rankLineCoords, teamNormalCoords);
-    console.log('i',intersection);
-    row._rankDistance = magnitude(intersection);
-    const domainIntersection = lineIntersection(rankLineCoords, teamNormalCoords);
+    
+    
+    const domainIntersection = [xScale.invert(intersection[0]), yScale.invert(intersection[1])];
+    row._rankDistance = magnitude(domainIntersection);
+    console.log(row.club, intersection, domainIntersection, row._rankDistance);
 
-    row._rankingIntersection = [xScale.invert(domainIntersection[0]), yScale.invert(domainIntersection[1])];
+    row._rankingIntersection = domainIntersection;
     return row;
   });
 
