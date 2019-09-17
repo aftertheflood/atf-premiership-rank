@@ -97,16 +97,11 @@ function rankTeams(req, res, next){
     length: 1 //length doesn't really matter
   };
 
-
-  console.log('rank', rankVector);
-  console.log('regression', regressionLine);
-
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
-//  const rankLineCoords = [  // regression version
-//     [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
-//     [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
-//   ];
-  console.log('rank coords', rankLineCoords)
+  // const rankLineCoords = [  // regression version
+  //   [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
+  //   [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
+  // ];
 
   // or make it from the regression line
   /*
@@ -125,10 +120,12 @@ function rankTeams(req, res, next){
       length: 1
     }
     const teamNormalCoords = vector2coords(teamNormal.angle, teamNormal.length, teamNormal.origin);
-    const intersection =  lineIntersection(rankLineCoords,teamNormalCoords);
-
+    const intersection =  lineIntersection(rankLineCoords, teamNormalCoords);
+    console.log('i',intersection);
     row._rankDistance = magnitude(intersection);
-    row._rankingIntersection = intersection;
+    const domainIntersection = lineIntersection(rankLineCoords, teamNormalCoords);
+
+    row._rankingIntersection = [xScale.invert(domainIntersection[0]), yScale.invert(domainIntersection[1])];
     return row;
   });
 

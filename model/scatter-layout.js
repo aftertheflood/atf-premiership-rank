@@ -21,11 +21,15 @@ module.exports = (data, line, config)=>{
   ];
 
   const regressionAngle = coords2vector(regressionLine[0],regressionLine[1]).angle * 57.29578; //radians to degrees
-  points = data.map(d=>({
-    dataSet: { wagebill:d.wagebill, points:d.points, club:d.club, code:d.code },
-    coords: [scaleX(d['wagebill']), scaleY(d['points'])],
-    fill: colourScale(d._rankDifference),
-  }));
+  points = data.map(d=>{
+    console.log(d._rankingIntersection, [scaleX(d._rankingIntersection[0]), scaleY(d._rankingIntersection[1])]);
+    return {
+      dataSet: { wagebill:d.wagebill, points:d.points, club:d.club, code:d.code },
+      coords: [scaleX(d['wagebill']), scaleY(d['points'])],
+      intersection: [scaleX(d._rankingIntersection[0]), scaleY(d._rankingIntersection[1])],
+      fill: colourScale(d._rankDifference),
+    }
+  });
   const xMid = config.xDomain[0] + (config.xDomain[1]-config.xDomain[0])/2;
   const regressionLabelCoords = [scaleX(xMid), scaleY(line.predict(xMid))];
 
