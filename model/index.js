@@ -96,8 +96,17 @@ function rankTeams(req, res, next){
     origin: [0, 0],
     length: 1 //length doesn't really matter
   };
+
+
+  console.log('rank', rankVector);
+  console.log('regression', regressionLine);
+
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
-  
+//  const rankLineCoords = [  // regression version
+//     [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
+//     [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
+//   ];
+  console.log('rank coords', rankLineCoords)
 
   // or make it from the regression line
   /*
@@ -130,6 +139,7 @@ function rankTeams(req, res, next){
       return d;
     });
   req.regressionLine = regressionLine;
+  req.rankLineCoords = rankLineCoords;
   req.rankingDomain = {
     x: xScale.domain(),
     y: yScale.domain()
