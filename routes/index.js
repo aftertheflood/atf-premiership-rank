@@ -85,8 +85,8 @@ function addRoutes(app){
     rankTeams,
     (req, res) => {
       res.set('Content-Type','image/svg+xml');
-      res.render('scatter.svg.nj', 
-        scatterLayout(req.rankedResults, req.regressionLine, { 
+      res.render('scatter.svg.nj',
+        scatterLayout(req.data.results, req.regressionLine, { 
           width: 500, 
           height: 500,
           margin: { top: 20, left: 50, bottom: 50, right: 20 },

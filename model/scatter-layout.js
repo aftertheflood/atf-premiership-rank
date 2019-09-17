@@ -21,7 +21,6 @@ module.exports = (data, line, config)=>{
   ];
 
   const regressionAngle = coords2vector(regressionLine[0],regressionLine[1]).angle * 57.29578; //radians to degrees
-
   points = data.map(d=>({
     dataSet: { wagebill:d.wagebill, points:d.points, club:d.club, code:d.code },
     coords: [scaleX(d['wagebill']), scaleY(d['points'])],
