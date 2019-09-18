@@ -77,7 +77,7 @@ function rankTeams(req, res, next){
   const xScale = scaleLinear().range([1, 0]) // TODO flip
     .domain(xDomain);
 
-  const yScale = scaleLinear().range([1, 0]) 
+  const yScale = scaleLinear().range([0, 1]) 
     .domain(yDomain);
 
   const regressionLine = regressionLinear()
@@ -120,13 +120,13 @@ console.log('RANK LINE', rankLineCoords)
     
     const domainIntersection = [xScale.invert(intersection[0]), yScale.invert(intersection[1])];
     row._rankDistance = magnitude(domainIntersection);
-    console.log(row.club, intersection, domainIntersection, row._rankDistance);
+    console.log(' -- ',row._rankDistance);
 
     row._rankingIntersection = domainIntersection;
     return row;
   });
 
-  rankedData = rankedData.sort((a,b) => (a._rankDistance - b._rankDistance))
+  rankedData = rankedData.sort((a,b) => (b._rankDistance - a._rankDistance))
     .map((d,i)=>{ 
       d._rank = rankedData.length - i;
       d._rankDifference = d.position - d._rank;
