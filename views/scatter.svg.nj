@@ -12,11 +12,12 @@
     <g class="plot" transform="translate({{margin.left}}, {{margin.top}})">
       {% for p in points %}
         <circle {{ p.dataSet | dataSet | safe }} cx="{{p.coords[0]}}" cy="{{p.coords[1]}}" r="5" stroke="#000" fill="{{p.fill}}"></circle>
+        <line x1="{{p.coords[0]}}" y1="{{p.coords[1]}}" x2="{{p.intersection[0]}}" y2="{{p.intersection[1]}}" stroke="#000"></line>
       {% endfor %}
     </g>
     <g class="annotations" transform="translate({{margin.left}}, {{margin.top}})">
       <line stroke="#000" x1="{{regressionLine[0][0]}}" y1="{{regressionLine[0][1]}}" x2="{{regressionLine[1][0]}}" y2="{{regressionLine[1][1]}}"></line>
-      <text dy="-7" text-anchor="middle" transform="translate({{regressionLabelCoords[0]}},{{regressionLabelCoords[1]}}) rotate({{regressionAngle}})">regression line</text>
-    </g>
+      <!-- <text dy="-7" text-anchor="middle" transform="translate({{regressionLabelCoords[0]}},{{regressionLabelCoords[1]}}) rotate({{regressionAngle}})">regression line</text> -->
+    </g> 
   </g>
 </svg>

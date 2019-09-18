@@ -87,9 +87,9 @@ function rankTeams(req, res, next){
 
 //  console.log(regressionLine);
 
-  // create the vector
-  // either use a weigting to make a rank vector 
-  
+  /***  create the vector ***/
+
+  // either use a weigting to make a rank vector   
   const weighting = 0.5;
   const rankVector = {
     angle: (Math.PI/2) * weighting,
@@ -97,16 +97,15 @@ function rankTeams(req, res, next){
     length: 1 //length doesn't really matter
   };
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
+console.log('RANK LINE', rankLineCoords)
+// or make it from the regression line
   
-
-  // or make it from the regression line
-  /*
-  const rankLineCoords = [
-    [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
-    [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
-  ];
-  const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
-  */
+  // const rankLineCoords = [
+  //   [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
+  //   [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
+  // ];
+  // const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
+  
 
 
   let rankedData = req.data.results.map(row=>{
@@ -116,20 +115,25 @@ function rankTeams(req, res, next){
       length: 1
     }
     const teamNormalCoords = vector2coords(teamNormal.angle, teamNormal.length, teamNormal.origin);
-    const intersection =  lineIntersection(rankLineCoords,teamNormalCoords);
+    const intersection =  lineIntersection(rankLineCoords, teamNormalCoords);
+    
+    
+    const domainIntersection = [xScale.invert(intersection[0]), yScale.invert(intersection[1])];
+    row._rankDistance = magnitude(domainIntersection);
+    console.log(' -- ',row._rankDistance);
 
-    row._rankDistance = magnitude(intersection);
-    row._rankingIntersection = intersection;
+    row._rankingIntersection = domainIntersection;
     return row;
   });
 
-  rankedData = rankedData.sort((a,b) => (a._rankDistance - b._rankDistance))
+  rankedData = rankedData.sort((a,b) => (b._rankDistance - a._rankDistance))
     .map((d,i)=>{ 
       d._rank = rankedData.length - i;
       d._rankDifference = d.position - d._rank;
       return d;
     });
   req.regressionLine = regressionLine;
+  req.rankLineCoords = rankLineCoords;
   req.rankingDomain = {
     x: xScale.domain(),
     y: yScale.domain()
