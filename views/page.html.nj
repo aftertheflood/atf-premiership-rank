@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Level Wages League - After the flood.</title>
   <meta name="Description" content="After the flood's Level Wage League looks at the English Premier League through the lens of the teams wage bills.">
@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/fonts.css">
   {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/type.css"> #}
   {# <link rel="stylesheet" type="text/css" href="https://tools.aftertheflood.com/assets/css/layout.css"> #}
+  {% include "social-metadata.html.nj" %}
   <link rel="stylesheet" type="text/css" href="/assets/style.css">
   <script src="/assets/index.js"></script>
   <script src="/assets/d3.min.js"></script>
