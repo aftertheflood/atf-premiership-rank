@@ -87,6 +87,8 @@ function rankTeams(req, res, next){
 
   /***  create the vector ***/
 
+  /***  create the vector ***/
+
   // either use a weigting to make a rank vector   
   const weighting = 0.5;
   const rankVector = {
@@ -95,16 +97,6 @@ function rankTeams(req, res, next){
     length: 1 //length doesn't really matter
   };
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
-
-// or make it from the regression line
-  
-  // const rankLineCoords = [
-  //   [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
-  //   [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
-  // ];
-  // const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
-  
-
 
   let rankedData = req.data.results.map(row=>{
     const teamNormal = {
