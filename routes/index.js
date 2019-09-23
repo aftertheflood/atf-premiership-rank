@@ -26,7 +26,7 @@ function addRoutes(app){
     (req, res) => {
       res.render( 'index.html.nj', {
         data:req.data,
-        gameWeek: req.data.config['game week'][0].value,
+        gameWeek: new Date(req.data.config['game week'][0].value),
         season: req.data.config['season name'][0].value,
         date:new Date() },
         (err, markup) => {

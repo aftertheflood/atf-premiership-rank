@@ -85,7 +85,7 @@ function rankTeams(req, res, next){
     .y(propY)
     (req.data.results);
 
-//  console.log(regressionLine);
+  /***  create the vector ***/
 
   /***  create the vector ***/
 
@@ -97,16 +97,6 @@ function rankTeams(req, res, next){
     length: 1 //length doesn't really matter
   };
   const rankLineCoords = vector2coords(rankVector.angle, rankVector.length, rankVector.origin);
-console.log('RANK LINE', rankLineCoords)
-// or make it from the regression line
-  
-  // const rankLineCoords = [
-  //   [xScale(regressionLine[0][0]), yScale(regressionLine[0][1])],
-  //   [xScale(regressionLine[1][0]), yScale(regressionLine[1][1])]
-  // ];
-  // const rankVector = coords2vector(rankLineCoords[0],rankLineCoords[1]);
-  
-
 
   let rankedData = req.data.results.map(row=>{
     const teamNormal = {
@@ -120,7 +110,6 @@ console.log('RANK LINE', rankLineCoords)
     
     const domainIntersection = [xScale.invert(intersection[0]), yScale.invert(intersection[1])];
     row._rankDistance = magnitude(domainIntersection);
-    console.log(' -- ',row._rankDistance);
 
     row._rankingIntersection = domainIntersection;
     return row;
