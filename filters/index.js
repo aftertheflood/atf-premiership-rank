@@ -1,6 +1,6 @@
 require('../text/md-require');
 
-const { interpolateWarm, scaleSequential } = require('d3')
+const { interpolateWarm, scaleSequential, timeFormat } = require('d3')
 const imageURL = (clubid)=>`https://aftertheflood.com/wp-content/uploads/2019/07/${clubid}.png`;
 const markDownText = require('../text/index')
 
@@ -34,6 +34,7 @@ function addFilters(env){
     }
     return `${lookup[n][0]['name']}`
   });
+  env.addFilter('dayMonth', (d)=>timeFormat('%e %B')(d) );
   env.addFilter('dataSet', obj => Object.entries(obj).map(([k,v])=>`data-${k}="${v}"`).join(' '));
   env.addFilter('logo', imageURL);
   env.addFilter('signed', s => String(`${s >= 0 ? '+' : ''}${s}`));

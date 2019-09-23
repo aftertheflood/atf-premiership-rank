@@ -6,7 +6,7 @@
   {{ 'intro' | md | safe }}
   </div>
   <div class="content-block the-table">
-    <h3>Week {{ gameWeek }}, {{ season }} season</h3>
+    <h3>{{ season }} season, week ending {{ gameWeek | dayMonth }}</h3>
     <table>
       <thead>
         <tr>
