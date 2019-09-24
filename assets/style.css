@@ -477,3 +477,29 @@ footer p a:hover {color: rgba(255,255,255,1);}
 h2{
   color: white;
 }
+
+
+.image-container{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.wide-image{
+  width: 100%;
+}
+
+.high-image{
+  box-sizing: border-box;
+  display: none;
+}
+
+@media only screen and (max-width: 560px) {
+  .wide-image{
+    display: none; 
+  }
+  
+  .high-image{
+    width: 100%;
+    display: block;
+  }
+}

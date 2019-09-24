@@ -45,6 +45,8 @@
       </tbody>
     </table>
   </div>
-  <div class="content-block text-block">{{ 'how' | md | safe }}</div>
+  <div class="content-block text-block">{{ 'methodology1' | md | safe }}</div>
+  <div class="content-block image-block">{{ 'methodology-image' | md | safe }}</div>
+  <div class="content-block text-block">{{ 'methodology2' | md | safe }}</div>
 
 {% endblock %}
