@@ -12,7 +12,7 @@ app.use(helmet({
     directives:{
       defaultSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com'],
       styleSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com'],
-      scriptSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com']
+      scriptSrc: ["'self'", 'www.aftertheflood.com', 'aftertheflood.com', 'tools.aftertheflood.com','www.googletagmanager.com']
     }
   }
 }));
