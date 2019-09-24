@@ -467,3 +467,7 @@ footer p a:hover {color: rgba(255,255,255,1);}
 @media only screen and (min-width: 660px) {footer p {padding: 22px 0 120px 3px;}}
 @media only screen and (min-width: 770px) {footer p {padding: 22px 0 120px 3px;}}
 @media only screen and (min-width: 900px) {footer p {padding: 22px 0 150px 3px;}}
+
+h2{
+  color: white;
+}
