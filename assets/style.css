@@ -106,7 +106,13 @@ p {
   -webkit-font-smoothing: antialiased;
 }
 
-.heading h2 {margin: 5px 0 0 6px;}
+.heading h2 {
+  margin: 5px 0 0 6px;
+}
+
+.heading h2 a{
+  color: white;
+}
 
 .logo-box {
   margin: 10px 28px 0 28px;
