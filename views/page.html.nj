@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148616945-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-148616945-1');
+  </script>
   <title>Level Wages League - After the flood.</title>
   <meta name="Description" content="After the flood's Level Wage League looks at the English Premier League through the lens of the teams wage bills.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
