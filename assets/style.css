@@ -2,7 +2,7 @@
 	font-family: 'Tiempos';
 	src: url('fonts/TiemposTextWeb-Regular.eot');
 	src: url('fonts/TiemposTextWeb-Regular.eot?#iefix') format('embedded-opentype'),
-		 url('fonts/TiemposTextWeb-Regular.woff') format('woff');
+		   url('fonts/TiemposTextWeb-Regular.woff') format('woff');
 }
 
 
@@ -25,9 +25,6 @@ html {
 	font-kerning: normal;
 	letter-spacing: 0.005em;
 }
-/* p {font-family: 'Tiempos', 'Times New Roman', Serif;} */
-/* table {font-family: 'Graphik', Helvetica, Sans-serif;} */
-
 
 
 
@@ -94,13 +91,13 @@ p {
 ------------------------------------------------------------------ */
 .heading {
   padding: 0;
-  margin: 7px 0 0 16px;
+  margin: 7px 0 0 21px;
 }
 
 .heading h1 {
   font-size: 105px;
   line-height: 0.82em;
-  font-weight: 400;
+  font-weight: 800;
   letter-spacing: -0.045em;
   margin: 0;
   padding: 0;
@@ -109,16 +106,24 @@ p {
   -webkit-font-smoothing: antialiased;
 }
 
+.heading h2 {
+  margin: 5px 0 0 6px;
+}
+
+.heading h2 a{
+  color: white;
+}
+
 .logo-box {
-  margin: 10px 30px 0 30px;
-  clip-path: inset(20px -30px 0px -30px);
+  margin: 10px 28px 0 28px;
+  clip-path: inset(20px -28px 0px -28px);
 }
 
 svg#logo {
   width: 100%;
   height: 25vh;
   overflow: visible;
-  stroke-width: 10px;
+  stroke-width: 2px;
 }
 
 
@@ -150,7 +155,6 @@ th {
   background-repeat: no-repeat;
   background-color: transparent;
   vertical-align: bottom;
-  /* background-size: 25px 25px; no idea what this does or why it was here */ 
 }
 th:hover {
   background-color: #000;
@@ -187,7 +191,6 @@ th.club {padding-left: 30px;}
 td.number {
   text-align: right;
   font-variant-numeric: tabular-nums;
-  /* padding-right: 50px; */
 }
 td.currency {
   text-align: right;
@@ -198,7 +201,6 @@ td.currency {
 tbody tr:nth-of-type(4) {border-bottom: solid 1px #000;}
 tbody tr:nth-of-type(5) {border-bottom: dashed 1px #000;}
 tbody tr:nth-of-type(18) {border-top: solid 1px #000;}
-/* th {border-bottom: 3px solid #000;} */
 
 /* Table row background color */
 .the-table {background-color: #f8f8f8;}
@@ -215,10 +217,10 @@ h3 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 18px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   color: rgba(0,0,0,0.5);
   margin: 0;
-  padding: 14px 0 15px 17px;
+  padding: 14px 30px 15px 30px;
   text-align: left;
   /* background-color: transparent; */
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
@@ -259,14 +261,17 @@ h3 {
   }
   .the-table {width: 100%;}
   .heading h1 {font-size: 90px;}
-  .logo-box {margin: 9px 28px 0 28px;}
-  svg#logo {
-    height: 23vh;
-    stroke-width: 9px;
-  }
+  .heading h2 {margin: 4px 0 0 5px;}
+  svg#logo {height: 23vh;}
   table {font-size: 26px;}
   td, th {padding: 9px 18px 13px 18px;}
-  h3 {font-size: 15px;}
+  th.club {padding-left: 18px;}
+  h2 {font-size: 21px;}
+  h3 {
+    font-size: 14px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
   p {font-size: 21px;}
   .club-badge-wrapper {
     height: 33px; 
@@ -292,10 +297,16 @@ h3 {
     margin-top: 12px;
     margin-bottom: 12px;
   }
-  .heading {margin: 7px 160px 0 31px;}
-  .heading h1 {font-size: 79px;}
-  .logo-box {margin: 27px 42px 0 42px;}
-  svg#logo {stroke-width: 7px;}
+  .heading {margin: 7px 29px 0 29px;}
+  .heading h1 {font-size: 104px;}
+  .heading h2 {
+    margin: 8px 0 0 6px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .logo-box {margin: 24px 37px 0 37px;}
   h3 {padding: 12px 0 12px 34px;}
   table {font-size: 22px;}
   td {padding: 7px 34px 9px 34px;}
@@ -352,10 +363,11 @@ h3 {
     background-size: 200%;
   }
   .content-block.text-block {padding: 24px;}
-  .heading {margin: 7px 100px 0 20px;}
+  .heading {margin: 7px 21px 0 21px;}
   .heading h1 {font-size: 70px;}
-  .logo-box {margin: 12px 29px 0 29px;}
-  svg#logo {stroke-width: 6px;}
+  .heading h2 {margin: 20px 0 0 4px;}
+  .logo-box {margin: 12px 27px 0 27px;}
+  h2 {font-size: 20px;}
   h3 {
     padding: 10px 0 10px 24px;
     font-size: 14px;
@@ -365,13 +377,6 @@ h3 {
   td, th {padding: 7px 24px 9px 24px;}
   td.number {padding-right: 24px;}
   th.club {padding-left: 24px;}
-  /* th{
-    text-align: center;
-  }
-  th.club{
-    text-align: center;
-    max-width: 250px;
-  } */
   .sort-icon{
     width: 11px;
     height: 11px;
@@ -390,8 +395,9 @@ h3 {
     font-size: 52px;
     font-weight: 800;
   }
+  .heading h2 {font-size: 12px;}
   .logo-box {
-    margin: 5px 22px 0 22px;
+    margin: 12px 22px 0 22px;
     clip-path: inset(12px -22px 2px -22px);
   }
   svg#logo {

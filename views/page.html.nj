@@ -28,7 +28,10 @@
     <svg id="logo"></svg>
   </div>
   
-  <div class="heading"><h1>Level Wages League</h1></div>
+  <div class="heading">
+    <h1>Level Wages League</h1>
+    <h2><a href="https://www.aftertheflood.com">By After the flood</a></h2>
+  </div>
 
   <div class="content">
     {% block content %}
