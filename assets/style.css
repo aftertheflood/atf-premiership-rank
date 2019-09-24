@@ -214,7 +214,7 @@ h3 {
   letter-spacing: 0.06em;
   color: rgba(0,0,0,0.5);
   margin: 0;
-  padding: 14px 0 15px 17px;
+  padding: 14px 30px 15px 30px;
   text-align: left;
   /* background-color: transparent; */
   background: linear-gradient(90deg, rgba(255,215,199,1) 5%, rgba(255,97,30,1) 90%);
@@ -259,8 +259,13 @@ h3 {
   svg#logo {height: 23vh;}
   table {font-size: 26px;}
   td, th {padding: 9px 18px 13px 18px;}
+  th.club {padding-left: 18px;}
   h2 {font-size: 21px;}
-  h3 {font-size: 14px;}
+  h3 {
+    font-size: 14px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
   p {font-size: 21px;}
   .club-badge-wrapper {
     height: 33px; 
