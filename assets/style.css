@@ -477,3 +477,13 @@ footer p a:hover {color: rgba(255,255,255,1);}
 h2{
   color: white;
 }
+
+
+
+.wide-image{
+  width: 100%;
+}
+
+.high-image{
+  display: none;
+}
