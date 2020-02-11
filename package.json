@@ -12,10 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.4",
-    "d3": "^5.9.7",
+    "d3": "^5.15.0",
     "d3-regression": "^1.2.4",
     "express": "^4.17.1",
-    "helmet": "^3.18.0",
+    "fs-readfile-promise": "^3.0.1",
+    "helmet": "^3.21.2",
     "lru-cache": "^5.1.1",
     "markdown-it": "^8.4.2",
     "node-fetch": "^2.6.0",
