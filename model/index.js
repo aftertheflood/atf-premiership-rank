@@ -1,9 +1,18 @@
-const fs= require('fs');
+const fs = require('fs');
 const { extent, scaleLinear, csvParse} = require('d3');
 const { regressionLinear } = require('d3-regression');
 const { vector2coords } = require('./vector-line');
 const lineIntersection = require('./line-intersection');
 const scatterLayout = require('./scatter-layout');
+
+require.extensions['.csv'] = (module, filename) => {
+  module.exports = fs.readFileSync(filename, 'utf8');
+};
+
+const resultsFile = require('./local-data/data 2019.csv');
+const teamsFile = require('./local-data/club details.csv');
+const configFile = require('./local-data/configuration.csv');
+
 
 function magnitude([x, y]){
   return Math.sqrt(x*x + y*y)
@@ -25,10 +34,6 @@ function decorateClubData(req, res, next){
 }
 
 function getSheetData(req, res, next){
-  const resultsFile = fs.readFileSync('./model/local-data/data 2019.csv','utf-8');
-  const teamsFile = fs.readFileSync('./model/local-data/club details.csv','utf-8');
-  const configFile = fs.readFileSync('./model/local-data/configuration.csv','utf-8');
-  
   const resultsLocal = csvParse(resultsFile); 
   const teamsLocal = {};
   csvParse(teamsFile).forEach((row)=>{
