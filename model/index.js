@@ -1,9 +1,23 @@
-const fs= require('fs');
-const { extent, scaleLinear, csvParse} = require('d3');
+const fetch = require('node-fetch');
+const { extent, scaleLinear} = require('d3');
 const { regressionLinear } = require('d3-regression');
-const { vector2coords } = require('./vector-line');
+const { vector2coords, coords2vector } = require('./vector-line');
 const lineIntersection = require('./line-intersection');
 const scatterLayout = require('./scatter-layout');
+
+
+const seasonKey = 2019;
+const docID = '1o7Qg6ElbqI1lo2rfoA_OQAro34NksZmrp_hXdSM9JIE';
+const dataSheet = `data%20${seasonKey}`;
+const teamDetails = 'dictionary/club%20details-by-code';
+const sortOrder = 'dictionary/sort%20order-by-turnover';
+const configuration = 'dictionary/configuration-by-key';
+
+const appRoot = 'https://atf-exprecsv.herokuapp.com/data/';
+const dataURL = `${appRoot}${docID}/${dataSheet}.json`;
+const teamDataURL = `${appRoot}${docID}/${teamDetails}.json`;
+const sortOrderURL = `${appRoot}${docID}/${sortOrder}.json`;
+const configurationURL = `${appRoot}${docID}/${configuration}.json`;
 
 function magnitude([x, y]){
   return Math.sqrt(x*x + y*y)
@@ -25,25 +39,29 @@ function decorateClubData(req, res, next){
 }
 
 function getSheetData(req, res, next){
-  const resultsFile = fs.readFileSync('./model/local-data/data 2019.csv','utf-8');
-  const teamsFile = fs.readFileSync('./model/local-data/club details.csv','utf-8');
-  const configFile = fs.readFileSync('./model/local-data/configuration.csv','utf-8');
-  
-  const resultsLocal = csvParse(resultsFile); 
-  const teamsLocal = {};
-  csvParse(teamsFile).forEach((row)=>{
-    teamsLocal[row.code] = [row];
-  });
-  const configLocal = {};
-  csvParse(configFile).forEach((row)=>{
-    configLocal[row.key] = [row];
-  })
 
-  req.data = { 
-    results:resultsLocal, 
-    teams:teamsLocal, 
-    config:configLocal };
-  next();
+  const dataGet = fetch(dataURL);
+  const teamsGet = fetch(teamDataURL);
+  const sortOrderGet = fetch(sortOrderURL);
+  const configurationGet = fetch(configurationURL);
+
+  Promise.all([dataGet, teamsGet, sortOrderGet, configurationGet])
+    .then( ([results, teams, sort, config]) => {
+      return Promise.all([
+        results.json(),
+        teams.json(),
+        sort.json(),
+        config.json()
+      ]);
+    })
+    .then(([results, teams, sort, config]) => {
+      req.data = { results, teams, sort, config };
+      next();
+    })
+    .catch(err=>{
+      res.status(500);
+      next(new Error('500: Unable to retrieve data'))
+    });
 }
 
 function rankTeams(req, res, next){
