@@ -1,4 +1,5 @@
 const fs = require('fs');
+const fetch = require('node-fetch');
 const { extent, scaleLinear, csvParse} = require('d3');
 const { regressionLinear } = require('d3-regression');
 const { vector2coords } = require('./vector-line');
@@ -9,10 +10,8 @@ require.extensions['.csv'] = (module, filename) => {
   module.exports = fs.readFileSync(filename, 'utf8');
 };
 
-const resultsFile = require('./local-data/data 2019.csv');
 const teamsFile = require('./local-data/club details.csv');
 const configFile = require('./local-data/configuration.csv');
-
 
 function magnitude([x, y]){
   return Math.sqrt(x*x + y*y)
@@ -34,7 +33,6 @@ function decorateClubData(req, res, next){
 }
 
 function getSheetData(req, res, next){
-  const resultsLocal = csvParse(resultsFile); 
   const teamsLocal = {};
   csvParse(teamsFile).forEach((row)=>{
     teamsLocal[row.code] = [row];
@@ -45,10 +43,20 @@ function getSheetData(req, res, next){
   })
 
   req.data = { 
-    results:resultsLocal, 
     teams:teamsLocal, 
     config:configLocal };
-  next();
+
+  fetch('http://football-tables.herokuapp.com/division/premier-league.json')
+    .then((body)=>{
+      return body.json()
+    }).then((results)=>{
+      req.data.results = results.table.map(t=>{
+        t.wagebill = Number(teamsLocal[t.code][0].wagebill);
+        return t;
+      });
+
+      next();
+    });
 }
 
 function rankTeams(req, res, next){
@@ -60,7 +68,6 @@ function rankTeams(req, res, next){
   // work out the scales to normalise the values to between 0 and 1
   const xDomain = extent(req.data.results, propX);
   const yDomain = extent(req.data.results, propY);
-
   const xScale = scaleLinear().range([1, 0]) // TODO flip
     .domain(xDomain);
 
@@ -74,9 +81,7 @@ function rankTeams(req, res, next){
 
   /***  create the vector ***/
 
-  /***  create the vector ***/
-
-  // either use a weigting to make a rank vector   
+  // either use a weighting to make a rank vector   
   const weighting = 0.5;
   const rankVector = {
     angle: (Math.PI/2) * weighting,
